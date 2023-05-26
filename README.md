@@ -1,14 +1,13 @@
 # trippler
 
-Build do docker:
-```docker build -t shaianeboesing/trippler . ```
+Build do docker: <br>
+`docker build -t shaianeboesing/trippler .`
 
-levantar aplicação:
-``docker-compose up``
+Levantar aplicação: <br>
+`docker-compose up`
 
-acessar bash:
-``docker exec -it trippler-app-1  bash``
+Acessar bash: <br>
+`docker exec -it trippler-app-1  bash`
 
-rodar ddl e seed (necessário especificar o caminho. Exemplo: ./database/scripts/seed.sql)
-``` node database/migrate.js <PATH DO .SQL FILE>```
-
+Rodar ddl e seed <br>
+`node database/migrate.js ./database/scripts/seed.sql`
