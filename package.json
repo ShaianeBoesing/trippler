@@ -4,6 +4,7 @@
     "description": "Projeto Trippler",
     "main": "index.js",
     "scripts": {
+        "dev": "nodemon -L --inspect=0.0.0.0 index.js",
         "start": "nodemon index.js"
     },
     "author": "Shaiane Boesing",

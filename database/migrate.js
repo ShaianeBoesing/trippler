@@ -1,31 +1,19 @@
-const argumentos = process.argv.slice(2);
-
-if (argumentos.length < 1) {
-  console.log('É necessário fornecer pelo menos 1 argumento.');
-  return;
-}
-
-const path = argumentos[0];
-
 const connection = require('./connection.js');
 const readFile = require('./readSqlFile.js');
 
-const runQueries = async () => {
-  const conn = connection();
-  const queries = readFile(path);
+let paths;
+const argumentos = process.argv.slice(2);
 
-  for (const query of queries) {
-    try {
-      await executeQuery(conn, query);
-      console.log('Query executada com sucesso:', query);
-    } catch (error) {
-      console.error('Erro ao executar a query:', query);
-      console.error(error);
-    }
-  }
+if (argumentos.length < 1) {
+  // Por padrão usa esses dois .sql
+  paths = ['./database/scripts/ddl.sql', './database/scripts/seed.sql'];
 
-  conn.end();
-};
+  // console.log('É necessário fornecer pelo menos 1 argumento.');
+  // return;
+}
+else {
+  paths = argumentos;
+}
 
 const executeQuery = (conn, query) => {
   return new Promise((resolve, reject) => {
@@ -39,4 +27,27 @@ const executeQuery = (conn, query) => {
   });
 };
 
-runQueries();
+const runQueries = async (paths) => {
+  const conn = connection();
+
+  for (const path of paths) {
+    const queries = readFile(path);
+
+    for (const query of queries) {
+      try {
+        await executeQuery(conn, query);
+        console.log('Done');
+        // console.log('Query executada com sucesso:', query);
+      } catch (error) {
+        console.error('Erro ao executar a query:', query);
+        console.error(error);
+      }
+    }
+  }
+
+  conn.end();
+};
+
+runQueries(paths);
+
+module.exports = { executeQuery, runQueries };
