@@ -1,0 +1,120 @@
+{
+    "info": {
+      "_postman_id": "4d6e45ad-1dc0-4d45-9d76-860d3512a21f",
+      "name": "API TRIPPLER",
+      "description": "API para gerenciamento de usuários (CRUD) em uma aplicação maior",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Listar Usuários",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "body": {},
+          "url": {
+            "raw": "{{base_url}}/users",
+            "host": [
+              "{{base_url}}"
+            ],
+            "path": [
+              "users"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Criar Usuário",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"nome\": \"John Doe\",\n  \"username\": \"johndoe\",\n  \"email\": \"johndoe@example.com\",\n  \"endereco\": \"123 Main St\",\n  \"telefone\": \"(123) 456-7890\",\n  \"data_nasc\": \"1990-01-01\"\n}"
+          },
+          "url": {
+            "raw": "{{base_url}}/users",
+            "host": [
+              "{{base_url}}"
+            ],
+            "path": [
+              "users"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Obter Usuário",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "body": {},
+          "url": {
+            "raw": "{{base_url}}/users/{{user_id}}",
+            "host": [
+              "{{base_url}}"
+            ],
+            "path": [
+              "users",
+              "{{user_id}}"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Atualizar Usuário",
+        "request": {
+          "method": "PUT",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"nome\": \"John Doe\",\n  \"username\": \"johndoe\",\n  \"email\": \"johndoe@example.com\",\n  \"endereco\": \"456 Oak St\",\n  \"telefone\": \"(123) 456-7890\",\n  \"data_nasc\": \"1990-01-01\"\n}"
+          },
+          "url": {
+            "raw": "{{base_url}}/users/{{user_id}}",
+            "host": [
+              "{{base_url}}"
+            ],
+            "path": [
+              "users",
+              "{{user_id}}"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Excluir Usuário",
+        "request": {
+          "method": "DELETE",
+          "header": [],
+          "body": {},
+          "url": {
+            "raw": "{{base_url}}/users/{{user_id}}",
+            "host": [
+              "{{base_url}}"
+            ],
+            "path": [
+              "users",
+              "{{user_id}}"
+            ]
+          }
+        },
+        "response": []
+      }
+    ]
+  }
+  

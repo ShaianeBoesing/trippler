@@ -7,9 +7,6 @@ const argumentos = process.argv.slice(2);
 if (argumentos.length < 1) {
   // Por padrão usa esses dois .sql
   paths = ['./database/scripts/ddl.sql', './database/scripts/seed.sql'];
-
-  // console.log('É necessário fornecer pelo menos 1 argumento.');
-  // return;
 }
 else {
   paths = argumentos;

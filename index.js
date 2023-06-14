@@ -1,25 +1,11 @@
-require('dotenv').config();
-
 const express = require('express');
-const mysql = require('mysql2');
-const connection = require('./database/connection.js');
-const migrate = require('./database/migrate.js');
-
-const PORT = 3000;
-const HOST = '0.0.0.0';
-
+const routes = require('./src/routes');
 const app = express();
-const conn = connection();
+const port = 3000;
+const host = '0.0.0.0';
 
-app.get('/', (req, res) => {
-    conn.query('SELECT * FROM Usuario', (error, results) => {
-        if (error) {
-            res.send('Erro: ' + error.message);
-        } else {
-            res.send(results);
-        }
-    });
-});
+app.use('/', routes);
 
-app.listen(PORT, HOST);
-console.log("Server running! :)");
+app.listen(port, host);
+
+console.log("Server running!");
