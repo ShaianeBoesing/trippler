@@ -54,7 +54,7 @@ class User {
       telefone: updatedUser.telefone,
       data_nasc: updatedUser.data_nasc,
     };
-    await db.update('Usuario', userId, values);
+    await db.update('Usuario', 'id_usuario', userId, values);
     await db.close();
     updatedUser.id_usuario = userId;
     return new User(updatedUser);
@@ -63,7 +63,7 @@ class User {
   static async deleteUser(userId) {
     const db = new Database();
     await db.connect();
-    await db.delete('Usuario', userId);
+    await db.delete('Usuario', 'id_usuario', userId);
     await db.close();
   }
 

@@ -24,20 +24,20 @@ class Database {
     return result.insertId;
   }
 
-  async select(query) {
-    const [rows] = await this.connection.query(query);
+  async select(query, id) {
+    const [rows] = await this.connection.query(query, [id]);
     return rows;
   }
 
-  async update(table_name, id, values) {
+  async update(table_name, id_column, id, values) {
     const set_values = Object.keys(values).map(column => `${column} = ?`).join(', ');
     const params = [...Object.values(values), id];
-    const query = `UPDATE ${table_name} SET ${set_values} WHERE id=?`;
+    const query = `UPDATE ${table_name} SET ${set_values} WHERE ${id_column}=?`;
     await this.connection.query(query, params);
   }
 
-  async delete(table_name, id) {
-    const query = `DELETE FROM ${table_name} WHERE id=?`;
+  async delete(table_name, id_column, id) {
+    const query = `DELETE FROM ${table_name} WHERE ${id_column}=?`;
     await this.connection.query(query, [id]);
   }
 
