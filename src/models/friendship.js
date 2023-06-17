@@ -15,19 +15,18 @@ class Friendship {
     values['data_inicio_amizade'] = dbFormattedDate;
 
     const db = new Database();
-    await db.connect();
     const friendshipId = await db.insert('Amizade', values);
-    await db.close();
+
     newFriendship.id_amizade = friendshipId;
     return new Friendship(newFriendship);
   }
 
-  static async getFriendshipById(friendshipId) {
+  static async getFriendshipById(friendshipId, userId) {
+    const query = 'SELECT * FROM Amizade WHERE id_amizade = ? and id_usuario = ?';
+
     const db = new Database();
-    await db.connect();
-    const query = 'SELECT * FROM Amizade WHERE id_amizade = ?';
-    const friendshipRows = await db.select(query, [friendshipId]);
-    await db.close();
+    const friendshipRows = await db.raw(query, [friendshipId, userId]);
+
     if (friendshipRows.length === 0) {
       return null;
     }
@@ -35,12 +34,11 @@ class Friendship {
     return new Friendship(friendshipData);
   }
 
-  static async deleteFriendship(friendshipId) {
-    const id = {'id_amizade': friendshipId}
+  static async deleteFriendship(friendshipId, userId) {
+    const query = 'DELETE FROM Amizade WHERE id_amizade = ? AND id_usuario = ?';
+
     const db = new Database();
-    await db.connect();
-    await db.delete('Amizade', id);
-    await db.close();
+    await db.raw(query, [friendshipId, userId]);
   }
 }
 

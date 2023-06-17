@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS Usuario (
     id_usuario int AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(40),
-    username VARCHAR(20) NOT NULL,
+    username VARCHAR(20) NOT NULL UNIQUE,
     email VARCHAR(40) NOT NULL,
     endereco VARCHAR(60),
     telefone VARCHAR(20),

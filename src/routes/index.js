@@ -1,22 +1,35 @@
 const routes = require('express').Router();
+const authenticate_token_middleware = require('../middlewares/authenticate_token_middleware')
+const login = require('../controllers/login_controller');
 const users = require('../controllers/users_controller');
 const friendships = require('../controllers/friendships_controller');
+const trips = require('../controllers/trips_controller');
 const turisticSpots = require('../controllers/turistic_spot_controller');
-const tripItem = require('../controllers/trip_item_controller');
+const tripItem = require('../controllers/trip_items_controller');
 const reviews = require('../controllers/review_controller');
 const paradas = require('../controllers/parada_controller');
 
+
+routes.post('/login', login.authenticate);
+
 // Users
-routes.get('/users', users.index); 
+routes.get('/users', authenticate_token_middleware.authenticateToken, users.index); 
 routes.post('/users', users.create); 
-routes.get('/users/:id', users.show); 
-routes.put('/users/:id', users.update);
-routes.delete('/users/:id', users.delete);
+routes.get('/users/:id', authenticate_token_middleware.authenticateToken,  users.show); 
+routes.put('/users/:id', authenticate_token_middleware.authenticateToken,  users.update);
+routes.delete('/users/:id', authenticate_token_middleware.authenticateToken,  users.delete);
 
 // Frindships
-routes.post('/friendships', friendships.create);
-routes.get('/friendships/:id', friendships.show); 
-routes.delete('/friendships/:id', friendships.delete);
+routes.post('/friendships', authenticate_token_middleware.authenticateToken, friendships.create);
+routes.get('/friendships/:id', authenticate_token_middleware.authenticateToken, friendships.show); 
+routes.delete('/friendships/:id', authenticate_token_middleware.authenticateToken, friendships.delete);
+
+// Trips
+routes.get('/trips', authenticate_token_middleware.authenticateToken, trips.index); 
+routes.post('/trips', authenticate_token_middleware.authenticateToken, trips.create); 
+routes.get('/trips/:id', authenticate_token_middleware.authenticateToken, trips.show); 
+routes.put('/trips/:id', authenticate_token_middleware.authenticateToken, trips.update);
+routes.delete('/trips/:id', authenticate_token_middleware.authenticateToken, trips.delete);
 
 // // Pontos Turísticos
 // routes.get('/pontos-turisticos', turisticSpots.index); // Listar todos os pontos turísticos
