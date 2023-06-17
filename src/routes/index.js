@@ -1,16 +1,22 @@
 const routes = require('express').Router();
 const users = require('../controllers/users_controller');
+const friendships = require('../controllers/friendships_controller');
 const turisticSpots = require('../controllers/turistic_spot_controller');
 const tripItem = require('../controllers/trip_item_controller');
 const reviews = require('../controllers/review_controller');
 const paradas = require('../controllers/parada_controller');
 
 // Users
-routes.get('/users', users.index); // Listar todos os usuários
-routes.post('/users', users.create); // Criar um novo usuário
-routes.get('/users/:id', users.show); // Obter os detalhes de um usuário específico
-routes.put('/users/:id', users.update); // Atualizar as informações de um usuário específico
-routes.delete('/users/:id', users.delete); // Excluir um usuário específico
+routes.get('/users', users.index); 
+routes.post('/users', users.create); 
+routes.get('/users/:id', users.show); 
+routes.put('/users/:id', users.update);
+routes.delete('/users/:id', users.delete);
+
+// Frindships
+routes.post('/friendships', friendships.create);
+routes.get('/friendships/:id', friendships.show); 
+routes.delete('/friendships/:id', friendships.delete);
 
 // // Pontos Turísticos
 // routes.get('/pontos-turisticos', turisticSpots.index); // Listar todos os pontos turísticos

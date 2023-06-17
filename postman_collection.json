@@ -118,6 +118,73 @@
       ]
     },
     {
+      "name": "Friendship",
+      "item": [
+        {
+          "name": "Create Friendship",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": 1,\n  \"friend_id\": 2\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/friendships",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "friendships"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Friendship by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/friendships/{{friendship_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "friendships",
+                "{{friendship_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Friendship",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/friendships/{{friendship_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "friendships",
+                "{{friendship_id}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },    
+    {
       "name": "Pontos Turísticos",
       "item": [
         {
