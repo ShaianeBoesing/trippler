@@ -44,26 +44,21 @@ class User {
   }
 
   static async updateUser(userId, updatedUser) {
+    const id = {'id_usuario': userId}
     const db = new Database();
     await db.connect();
-    const values = {
-      nome: updatedUser.nome,
-      username: updatedUser.username,
-      email: updatedUser.email,
-      endereco: updatedUser.endereco,
-      telefone: updatedUser.telefone,
-      data_nasc: updatedUser.data_nasc,
-    };
-    await db.update('Usuario', userId, values);
+    const values = updatedUser;
+    await db.update('Usuario', id, values);
     await db.close();
     updatedUser.id_usuario = userId;
     return new User(updatedUser);
   }
 
   static async deleteUser(userId) {
+    const id = {'id_usuario': userId}
     const db = new Database();
     await db.connect();
-    await db.delete('Usuario', userId);
+    await db.delete('Usuario', id);
     await db.close();
   }
 

@@ -10,4 +10,7 @@ Acessar bash: <br>
 `docker exec -it trippler-app-1  bash`
 
 Rodar ddl e seed <br>
-`node database/migrate.js ./database/scripts/seed.sql`
+``` 
+node database/migrate.js ./database/scripts/ddl.sql
+node database/migrate.js ./database/scripts/seed.sql
+```

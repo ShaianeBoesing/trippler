@@ -13,9 +13,6 @@ TRUNCATE TABLE Amizade;
 
 SET FOREIGN_KEY_CHECKS=1;
 
-INSERT INTO users (name, birth, username, password) values ('Shaiane Borges', '2002-09-12', 'shaiboesing', '123456');
-INSERT INTO users (name, birth, username, password) values ('Maurício', '2000-01-01', 'mauricio', '123456');
-
 INSERT INTO Usuario (nome, username, email, endereco, telefone, data_nasc) VALUES ('Shaiane Borges', 'shaiboesing', 'shaianeboesingrb@gmail.com', 'Florianópolis', '54992379676', '2002-09-12');
 INSERT INTO Usuario (nome, username, email, endereco, telefone, data_nasc) VALUES ('Maurício Salvador', 'mauriciools', 'msalvador03@gmail.com', 'Florianópolis', '48991990027', '2001-02-27');
 INSERT INTO Usuario (nome, username, email, endereco, telefone, data_nasc) VALUES ('Maria Silva', 'mariasilva', 'maria.silva@gmail.com', 'São Paulo', '11987654321', '1990-05-15');

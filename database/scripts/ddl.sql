@@ -1,11 +1,3 @@
-CREATE TABLE IF NOT EXISTS users (
-    id int AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(50) NOT NULL,
-    birth DATE NOT NULL,
-    username VARCHAR(50) NOT NULL,
-    password VARCHAR(50) NOT NULL
-);
-
 CREATE TABLE IF NOT EXISTS Usuario (
     id_usuario int AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(40),
@@ -21,8 +13,8 @@ CREATE TABLE IF NOT EXISTS Amizade (
     data_inicio_amizade DATE NOT NULL,
     id_usuario_1 int NOT NULL,
     id_usuario_2 int NOT NULL,
-    FOREIGN KEY (id_usuario_1) REFERENCES Usuario(id_usuario),
-    FOREIGN KEY (id_usuario_2) REFERENCES Usuario(id_usuario)
+    FOREIGN KEY (id_usuario_1) REFERENCES Usuario(id_usuario) ON DELETE CASCADE,
+    FOREIGN KEY (id_usuario_2) REFERENCES Usuario(id_usuario) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS Viagem (
@@ -34,7 +26,7 @@ CREATE TABLE IF NOT EXISTS Viagem (
     descricao VARCHAR(150),
     nome VARCHAR(40),
     id_usuario int NOT NULL,
-    FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario)
+    FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS Item (
@@ -79,7 +71,7 @@ CREATE TABLE IF NOT EXISTS Parada (
     custo float,
     nota float,
     PRIMARY KEY (id_viagem, id_ponto),
-    FOREIGN KEY (id_viagem) REFERENCES Viagem(id_viagem),
+    FOREIGN KEY (id_viagem) REFERENCES Viagem(id_viagem) ON DELETE CASCADE, 
     FOREIGN KEY (id_ponto) REFERENCES Ponto_Turistico(id_ponto)
 );
 
@@ -89,6 +81,6 @@ CREATE TABLE IF NOT EXISTS Review (
     descricao VARCHAR(150),
     id_viagem int NOT NULL,
     id_usuario int NOT NULL,
-    FOREIGN KEY (id_viagem) REFERENCES Viagem(id_viagem),
+    FOREIGN KEY (id_viagem) REFERENCES Viagem(id_viagem) ON DELETE CASCADE,
     FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario)
 );

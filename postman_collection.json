@@ -1,120 +1,676 @@
 {
-    "info": {
-      "_postman_id": "4d6e45ad-1dc0-4d45-9d76-860d3512a21f",
-      "name": "API TRIPPLER",
-      "description": "API para gerenciamento de usuários (CRUD) em uma aplicação maior",
-      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  "info": {
+    "_postman_id": "YOUR_POSTMAN_COLLECTION_ID",
+    "name": "Trippler",
+    "description": "Collection for testing Your API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get All Users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/users",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"John Doe\",\n  \"username\": \"johndoe\",\n  \"email\": \"john.doe@example.com\",\n  \"endereco\": \"123 Main St\",\n  \"telefone\": \"123-456-7890\",\n  \"data_nasc\": \"1990-01-01\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/users",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get User by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/users/{{user_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                "{{user_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"username\": \"johndoe\",\n  \"email\": \"john.doe@example.com\",\n  \"endereco\": \"123 Main St\",\n  \"telefone\": \"123-456-7890\",\n  \"data_nasc\": \"1990-01-01\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/users/{{user_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                "{{user_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/users/{{user_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "users",
+                "{{user_id}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
     },
-    "item": [
-      {
-        "name": "Listar Usuários",
-        "request": {
-          "method": "GET",
-          "header": [],
-          "body": {},
-          "url": {
-            "raw": "{{base_url}}/users",
-            "host": [
-              "{{base_url}}"
-            ],
-            "path": [
-              "users"
-            ]
-          }
-        },
-        "response": []
-      },
-      {
-        "name": "Criar Usuário",
-        "request": {
-          "method": "POST",
-          "header": [
-            {
-              "key": "Content-Type",
-              "value": "application/json"
+    {
+      "name": "Pontos Turísticos",
+      "item": [
+        {
+          "name": "Get All Pontos Turísticos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/pontos-turisticos",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pontos-turisticos"
+              ]
             }
-          ],
-          "body": {
-            "mode": "raw",
-            "raw": "{\n  \"nome\": \"John Doe\",\n  \"username\": \"johndoe\",\n  \"email\": \"johndoe@example.com\",\n  \"endereco\": \"123 Main St\",\n  \"telefone\": \"(123) 456-7890\",\n  \"data_nasc\": \"1990-01-01\"\n}"
           },
-          "url": {
-            "raw": "{{base_url}}/users",
-            "host": [
-              "{{base_url}}"
-            ],
-            "path": [
-              "users"
-            ]
-          }
+          "response": []
         },
-        "response": []
-      },
-      {
-        "name": "Obter Usuário",
-        "request": {
-          "method": "GET",
-          "header": [],
-          "body": {},
-          "url": {
-            "raw": "{{base_url}}/users/{{user_id}}",
-            "host": [
-              "{{base_url}}"
+        {
+          "name": "Create Ponto Turístico",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
             ],
-            "path": [
-              "users",
-              "{{user_id}}"
-            ]
-          }
-        },
-        "response": []
-      },
-      {
-        "name": "Atualizar Usuário",
-        "request": {
-          "method": "PUT",
-          "header": [
-            {
-              "key": "Content-Type",
-              "value": "application/json"
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Ponto Turístico 1\",\n  \"descricao\": \"Descrição do Ponto Turístico 1\",\n  \"endereco\": \"Endereço do Ponto Turístico 1\",\n  \"categoria\": \"Categoria do Ponto Turístico 1\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/pontos-turisticos",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pontos-turisticos"
+              ]
             }
-          ],
-          "body": {
-            "mode": "raw",
-            "raw": "{\n  \"nome\": \"John Doe\",\n  \"username\": \"johndoe\",\n  \"email\": \"johndoe@example.com\",\n  \"endereco\": \"456 Oak St\",\n  \"telefone\": \"(123) 456-7890\",\n  \"data_nasc\": \"1990-01-01\"\n}"
           },
-          "url": {
-            "raw": "{{base_url}}/users/{{user_id}}",
-            "host": [
-              "{{base_url}}"
-            ],
-            "path": [
-              "users",
-              "{{user_id}}"
-            ]
-          }
+          "response": []
         },
-        "response": []
-      },
-      {
-        "name": "Excluir Usuário",
-        "request": {
-          "method": "DELETE",
-          "header": [],
-          "body": {},
-          "url": {
-            "raw": "{{base_url}}/users/{{user_id}}",
-            "host": [
-              "{{base_url}}"
-            ],
-            "path": [
-              "users",
-              "{{user_id}}"
-            ]
-          }
+        {
+          "name": "Get Ponto Turístico by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/pontos-turisticos/{{ponto_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pontos-turisticos",
+                "{{ponto_id}}"
+              ]
+            }
+          },
+          "response": []
         },
-        "response": []
-      }
-    ]
-  }
-  
+        {
+          "name": "Update Ponto Turístico",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Ponto Turístico 1\",\n  \"descricao\": \"Nova descrição do Ponto Turístico 1\",\n  \"endereco\": \"Novo endereço do Ponto Turístico 1\",\n  \"categoria\": \"Nova categoria do Ponto Turístico 1\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/pontos-turisticos/{{ponto_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pontos-turisticos",
+                "{{ponto_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Ponto Turístico",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/pontos-turisticos/{{ponto_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pontos-turisticos",
+                "{{ponto_id}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Viagem Items",
+      "item": [
+        {
+          "name": "Get All Viagem Items",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/viagem-items",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "viagem-items"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Viagem Item",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"viagem_id\": 1,\n  \"ponto_id\": 1,\n  \"data\": \"2023-06-15\",\n  \"nota\": 4.5,\n  \"comentario\": \"Comentário sobre o Viagem Item 1\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/viagem-items",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "viagem-items"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Viagem Item by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/viagem-items/{{viagem_item_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "viagem-items",
+                "{{viagem_item_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Viagem Item",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"viagem_id\": 1,\n  \"ponto_id\": 1,\n  \"data\": \"2023-06-15\",\n  \"nota\": 4.5,\n  \"comentario\": \"Novo comentário sobre o Viagem Item 1\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/viagem-items/{{viagem_item_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "viagem-items",
+                "{{viagem_item_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Viagem Item",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/viagem-items/{{viagem_item_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "viagem-items",
+                "{{viagem_item_id}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Reviews",
+      "item": [
+        {
+          "name": "Get All Reviews",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/reviews",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "reviews"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Review",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"viagem_item_id\": 1,\n  \"nota\": 4.5,\n  \"comentario\": \"Comentário sobre o Viagem Item 1\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/reviews",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "reviews"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Review by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/reviews/{{review_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "reviews",
+                "{{review_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Review",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"viagem_item_id\": 1,\n  \"nota\": 4.5,\n  \"comentario\": \"Novo comentário sobre o Viagem Item 1\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/reviews/{{review_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "reviews",
+                "{{review_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Review",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/reviews/{{review_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "reviews",
+                "{{review_id}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Paradas",
+      "item": [
+        {
+          "name": "Get All Paradas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/paradas",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "paradas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Parada",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"viagem_id\": 1,\n  \"ponto_id\": 1,\n  \"custo\": 50.0,\n  \"nota\": 4.0\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/paradas",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "paradas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Parada by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/paradas/{{parada_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "paradas",
+                "{{parada_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Parada",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"viagem_id\": 1,\n  \"ponto_id\": 1,\n  \"custo\": 60.0,\n  \"nota\": 4.5\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/paradas/{{parada_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "paradas",
+                "{{parada_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Parada",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/paradas/{{parada_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "paradas",
+                "{{parada_id}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Itens",
+      "item": [
+        {
+          "name": "Get All Itens",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/itens",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "itens"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Item",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"viagem_id\": 1,\n  \"nome\": \"Item 1\",\n  \"quantidade\": 2\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/itens",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "itens"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Item by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/itens/{{item_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "itens",
+                "{{item_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Item",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"viagem_id\": 1,\n  \"nome\": \"Item 1\",\n  \"quantidade\": 3\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/itens/{{item_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "itens",
+                "{{item_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Item",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/itens/{{item_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "itens",
+                "{{item_id}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }    
+  ]
+}
