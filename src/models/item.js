@@ -5,7 +5,7 @@ const db = new Database();
 
 class Item {
   constructor(item) {
-    this.id_item = item.id_item
+    this.id_item = item.id_item;
     this.nome = item.nome;
   }
 
