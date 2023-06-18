@@ -22,7 +22,7 @@ class Friendship {
   }
 
   static async getFriendshipById(friendshipId, userId) {
-    const query = 'SELECT * FROM Amizade WHERE id_amizade = ? and id_usuario = ?';
+    const query = 'SELECT * FROM Amizade WHERE id_amizade = ? and id_usuario_1 = ?';
 
     const db = new Database();
     const friendshipRows = await db.raw(query, [friendshipId, userId]);
