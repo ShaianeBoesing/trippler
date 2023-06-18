@@ -44,6 +44,7 @@ INSERT INTO Viagem (data_inicio, data_fim, cidade, pais, descricao, nome, id_usu
 INSERT INTO Viagem (data_inicio, data_fim, cidade, pais, descricao, nome, id_usuario) VALUES ('2019-11-05', '2019-11-12', 'Viena', 'Áustria', 'Explorando a música clássica e a elegância de Viena.', 'Viagem a Viena', 2);
 INSERT INTO Viagem (data_inicio, data_fim, cidade, pais, descricao, nome, id_usuario) VALUES ('2022-12-15', '2022-12-25', 'Dubai', 'Emirados Árabes Unidos', 'Experiência luxuosa em Dubai, conhecendo arranha-céus impressionantes e desertos deslumbrantes.', 'Dubai Luxe', 11);
 INSERT INTO Viagem (data_inicio, data_fim, cidade, pais, descricao, nome, id_usuario) VALUES ('2023-03-02', '2023-03-16', 'Fernando de Noronha', 'Brasil', 'As maravilhosas praias de Fernando de Noronha.', 'Ilha paradisíaca...', 12);
+INSERT INTO Viagem (data_inicio, data_fim, cidade, pais, descricao, nome, id_usuario) VALUES ('2023-03-02', '2023-03-16', 'Florianópolis', 'Brasil', 'As maravilhosas praias de Florianópolis.', 'Ilha paradisíaca...', 1);
 
 INSERT INTO Amizade (data_inicio_amizade, id_usuario_1, id_usuario_2) VALUES ('2023-04-02', 1, 2);
 INSERT INTO Amizade (data_inicio_amizade, id_usuario_1, id_usuario_2) VALUES ('2022-04-02', 1, 8);
@@ -96,7 +97,7 @@ INSERT INTO Viagem_Item (id_viagem, id_item, quantidade) VALUES (10, 6, 2);
 INSERT INTO Viagem_Item (id_viagem, id_item, quantidade) VALUES (2, 15, 1);
 INSERT INTO Viagem_Item (id_viagem, id_item, quantidade) VALUES (1, 8, 2);
 INSERT INTO Viagem_Item (id_viagem, id_item, quantidade) VALUES (4, 17, 1);
-INSERT INTO Viagem_Item (id_viagem, id_item, quantidade) VALUES (6, 20, 500);
+INSERT INTO Viagem_Item (id_viagem, id_item, quantidade) VALUES (6, 20, 8);
 INSERT INTO Viagem_Item (id_viagem, id_item, quantidade) VALUES (9, 1, 2);
 INSERT INTO Viagem_Item (id_viagem, id_item, quantidade) VALUES (13, 4, 1);
 INSERT INTO Viagem_Item (id_viagem, id_item, quantidade) VALUES (9, 6, 1);
@@ -109,7 +110,7 @@ INSERT INTO Viagem_Item (id_viagem, id_item, quantidade) VALUES (15, 8, 1);
 INSERT INTO Viagem_Item (id_viagem, id_item, quantidade) VALUES (5, 1, 3);
 INSERT INTO Viagem_Item (id_viagem, id_item, quantidade) VALUES (17, 12, 1);
 INSERT INTO Viagem_Item (id_viagem, id_item, quantidade) VALUES (11, 13, 2);
-INSERT INTO Viagem_Item (id_viagem, id_item, quantidade) VALUES (7, 20, 100);
+INSERT INTO Viagem_Item (id_viagem, id_item, quantidade) VALUES (7, 20, 6);
 INSERT INTO Viagem_Item (id_viagem, id_item, quantidade) VALUES (13, 2, 3);
 INSERT INTO Viagem_Item (id_viagem, id_item, quantidade) VALUES (3, 15, 1);
 INSERT INTO Viagem_Item (id_viagem, id_item, quantidade) VALUES (10, 9, 1);

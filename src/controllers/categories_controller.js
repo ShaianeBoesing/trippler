@@ -1,4 +1,4 @@
-const [Category, CategoryDependencyError] = require('../models/category');
+const { Category, CategoryDependencyError } = require('../models/category');
 
 exports.index = async function(req, res) {
   try {

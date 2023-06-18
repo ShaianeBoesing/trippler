@@ -1,5 +1,13 @@
 const Database = require('../../database');
 
+class CategoryNotFoundError extends Error {
+  constructor(message = 'Categoria não encontrada.', errorCode = 404) {
+    super(message);
+    this.name = 'CategoryNotFoundError';
+    this.errorCode = errorCode;
+  }
+}
+
 class CategoryDependencyError extends Error {
   constructor(message = 'A exclusão da categoria não é possível pois existem pontos turísticos vinculados à ela.', errorCode = 409) {
     super(message);
@@ -61,4 +69,4 @@ class Category {
   }
 }
 
-module.exports = [Category, CategoryDependencyError];
+module.exports = { Category, CategoryDependencyError, CategoryNotFoundError };

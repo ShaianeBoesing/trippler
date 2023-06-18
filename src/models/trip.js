@@ -1,6 +1,12 @@
-// models/Trip.js
-
 const Database = require('../../database');
+
+class TripNotFoundError extends Error {
+  constructor(message = 'Parada não encontrada.', errorCode = 404) {
+    super(message);
+    this.name = 'ParadaAlreadyExistsError';
+    this.errorCode = errorCode;
+  }
+}
 
 class Trip {
   constructor(trip) {
@@ -41,22 +47,28 @@ class Trip {
     const values = Object.values(updatedTrip);
     values.push(userId, tripId);
     const set_values = Object.keys(updatedTrip).map(column => `${column} = ?`).join(', ');
-
+  
     const db = new Database();
-    await db.raw(`UPDATE Viagem SET ${set_values} WHERE id_usuario = ? AND id_viagem = ?`, values);
-
+    const result = await db.raw(`UPDATE Viagem SET ${set_values} WHERE id_usuario = ? AND id_viagem = ?`, values);
+  
+    if (result.affectedRows === 0) {
+      throw new TripNotFoundError();
+    }
+  
     updatedTrip.id_usuario = userId;
     updatedTrip.id_viagem = tripId;
-
+  
     return new Trip(updatedTrip);
-
   }
 
   static async deleteTrip(tripId, userId) {
     const query = `DELETE FROM Viagem WHERE id_viagem = ? AND id_usuario = ?`;
 
     const db = new Database();
-    await db.raw(query, [tripId, userId]);
+    const result = await db.raw(query, [tripId, userId]);
+    if (result.affectedRows === 0) {
+      throw new TripNotFoundError();
+    }
   }
 
   static async listTrips(userId) {
@@ -70,4 +82,4 @@ class Trip {
   }
 }
 
-module.exports = Trip;
+module.exports = [Trip, TripNotFoundError];

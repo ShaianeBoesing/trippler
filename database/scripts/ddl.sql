@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS Viagem_Item (
     id_item int NOT NULL,
     quantidade int NOT NULL,
     PRIMARY KEY (id_viagem, id_item),
-    FOREIGN KEY (id_viagem) REFERENCES Viagem(id_viagem),
+    FOREIGN KEY (id_viagem) REFERENCES Viagem(id_viagem) ON DELETE CASCADE,
     FOREIGN KEY (id_item) REFERENCES Item(id_item)
 );
 
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS Midia (
     arquivo VARCHAR(255) NOT NULL,
     descricao VARCHAR(150),
     id_viagem int NOT NULL,
-    FOREIGN KEY (id_viagem) REFERENCES Viagem(id_viagem) 
+    FOREIGN KEY (id_viagem) REFERENCES Viagem(id_viagem) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS Categoria (
