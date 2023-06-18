@@ -60,6 +60,7 @@ routes.delete('/tripItens/:tripId/:itemId', authenticate_token_middleware.authen
 // Reviews
 routes.get('/trip/:tripId/reviews', authenticate_token_middleware.authenticateToken, reviews.index);
 routes.post('/trip/:tripId/reviews', authenticate_token_middleware.authenticateToken, reviews.create);
+routes.put('/reviews/:id', authenticate_token_middleware.authenticateToken, reviews.update);
 routes.delete('/reviews/:id', authenticate_token_middleware.authenticateToken, reviews.delete);
 
 // Categories
