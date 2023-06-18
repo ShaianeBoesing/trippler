@@ -1,918 +1,1138 @@
 {
-  "info": {
-    "_postman_id": "YOUR_POSTMAN_COLLECTION_ID",
-    "name": "Trippler",
-    "description": "Collection for testing Your API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-  },
-  "item": [
-    {
-      "name": "Auth",
-      "item": [
-        {
-          "name": "Login",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n    \"username\": \"user1\",\n    \"password\": \"password1\"\n}"
-            },
-            "url": {
-              "raw": "{{base_url}}/login",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "login"
-              ]
-            },
-            "description": "User login"
-          },
-          "response": []
-        },
-        {
-          "name": "Protected Endpoint",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{token}}",
-                "type": "text"
-              }
-            ],
-            "url": {
-              "raw": "{{base_url}}/protected",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "protected"
-              ]
-            },
-            "description": "Protected endpoint that requires authentication"
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "Users",
-      "item": [
-        {
-          "name": "Get All Users",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/users",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "users"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Create User",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"nome\": \"John Doe\",\n  \"username\": \"johndoe\",\n  \"email\": \"john.doe@example.com\",\n  \"endereco\": \"123 Main St\",\n  \"telefone\": \"123-456-7890\",\n  \"data_nasc\": \"1990-01-01\"\n}"
-            },
-            "url": {
-              "raw": "{{base_url}}/users",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "users"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get User by ID",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/users/{{user_id}}",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "users",
-                "{{user_id}}"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Update User",
-          "request": {
-            "method": "PUT",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"John Doe\",\n  \"username\": \"johndoe\",\n  \"email\": \"john.doe@example.com\",\n  \"endereco\": \"123 Main St\",\n  \"telefone\": \"123-456-7890\",\n  \"data_nasc\": \"1990-01-01\"\n}"
-            },
-            "url": {
-              "raw": "{{base_url}}/users/{{user_id}}",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "users",
-                "{{user_id}}"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Delete User",
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/users/{{user_id}}",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "users",
-                "{{user_id}}"
-              ]
-            }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "Friendship",
-      "item": [
-        {
-          "name": "Create Friendship",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"user_id\": 1,\n  \"friend_id\": 2\n}"
-            },
-            "url": {
-              "raw": "{{base_url}}/friendships",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "friendships"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get Friendship by ID",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/friendships/{{friendship_id}}",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "friendships",
-                "{{friendship_id}}"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Delete Friendship",
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/friendships/{{friendship_id}}",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "friendships",
-                "{{friendship_id}}"
-              ]
-            }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "Trip",
-      "item": [
-        {
-          "name": "Create Trip",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"data_inicio\": \"2023-06-20\",\n  \"data_fim\": \"2023-06-30\",\n  \"cidade\": \"Paris\",\n  \"pais\": \"France\",\n  \"descricao\": \"Viagem incrível para Paris\",\n  \"nome\": \"Viagem a Paris\"\n}"
-            },
-            "url": {
-              "raw": "{{base_url}}/trips",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "trips"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get Trip by ID",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/trips/{{trip_id}}",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "trips",
-                "{{trip_id}}"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Update Trip",
-          "request": {
-            "method": "PUT",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"data_inicio\": \"2023-06-22\",\n  \"data_fim\": \"2023-07-01\",\n  \"cidade\": \"Paris\",\n  \"pais\": \"France\",\n  \"descricao\": \"Viagem incrível para Paris\",\n  \"nome\": \"Viagem a Paris\",\n  \"id_usuario\": 1\n}"
-            },
-            "url": {
-              "raw": "{{base_url}}/trips/{{trip_id}}",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "trips",
-                "{{trip_id}}"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Delete Trip",
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/trips/{{trip_id}}",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "trips",
-                "{{trip_id}}"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "List Trips",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/trips",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "trips"
-              ]
-            }
-          },
-          "response": []
-        }
-      ]
-    },    
-    {
-      "name": "Pontos Turísticos",
-      "item": [
-        {
-          "name": "Get All Pontos Turísticos",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/pontos-turisticos",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "pontos-turisticos"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Create Ponto Turístico",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"nome\": \"Ponto Turístico 1\",\n  \"descricao\": \"Descrição do Ponto Turístico 1\",\n  \"endereco\": \"Endereço do Ponto Turístico 1\",\n  \"categoria\": \"Categoria do Ponto Turístico 1\"\n}"
-            },
-            "url": {
-              "raw": "{{base_url}}/pontos-turisticos",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "pontos-turisticos"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get Ponto Turístico by ID",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/pontos-turisticos/{{ponto_id}}",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "pontos-turisticos",
-                "{{ponto_id}}"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Update Ponto Turístico",
-          "request": {
-            "method": "PUT",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"nome\": \"Ponto Turístico 1\",\n  \"descricao\": \"Nova descrição do Ponto Turístico 1\",\n  \"endereco\": \"Novo endereço do Ponto Turístico 1\",\n  \"categoria\": \"Nova categoria do Ponto Turístico 1\"\n}"
-            },
-            "url": {
-              "raw": "{{base_url}}/pontos-turisticos/{{ponto_id}}",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "pontos-turisticos",
-                "{{ponto_id}}"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Delete Ponto Turístico",
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/pontos-turisticos/{{ponto_id}}",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "pontos-turisticos",
-                "{{ponto_id}}"
-              ]
-            }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "Viagem Items",
-      "item": [
-        {
-          "name": "Get All Viagem Items",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/viagem-items",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "viagem-items"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Create Viagem Item",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"viagem_id\": 1,\n  \"ponto_id\": 1,\n  \"data\": \"2023-06-15\",\n  \"nota\": 4.5,\n  \"comentario\": \"Comentário sobre o Viagem Item 1\"\n}"
-            },
-            "url": {
-              "raw": "{{base_url}}/viagem-items",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "viagem-items"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get Viagem Item by ID",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/viagem-items/{{viagem_item_id}}",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "viagem-items",
-                "{{viagem_item_id}}"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Update Viagem Item",
-          "request": {
-            "method": "PUT",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"viagem_id\": 1,\n  \"ponto_id\": 1,\n  \"data\": \"2023-06-15\",\n  \"nota\": 4.5,\n  \"comentario\": \"Novo comentário sobre o Viagem Item 1\"\n}"
-            },
-            "url": {
-              "raw": "{{base_url}}/viagem-items/{{viagem_item_id}}",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "viagem-items",
-                "{{viagem_item_id}}"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Delete Viagem Item",
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/viagem-items/{{viagem_item_id}}",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "viagem-items",
-                "{{viagem_item_id}}"
-              ]
-            }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "Reviews",
-      "item": [
-        {
-          "name": "Get All Reviews",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/reviews",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "reviews"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Create Review",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"viagem_item_id\": 1,\n  \"nota\": 4.5,\n  \"comentario\": \"Comentário sobre o Viagem Item 1\"\n}"
-            },
-            "url": {
-              "raw": "{{base_url}}/reviews",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "reviews"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get Review by ID",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/reviews/{{review_id}}",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "reviews",
-                "{{review_id}}"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Update Review",
-          "request": {
-            "method": "PUT",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"viagem_item_id\": 1,\n  \"nota\": 4.5,\n  \"comentario\": \"Novo comentário sobre o Viagem Item 1\"\n}"
-            },
-            "url": {
-              "raw": "{{base_url}}/reviews/{{review_id}}",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "reviews",
-                "{{review_id}}"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Delete Review",
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/reviews/{{review_id}}",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "reviews",
-                "{{review_id}}"
-              ]
-            }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "Paradas",
-      "item": [
-        {
-          "name": "Get All Paradas",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/paradas",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "paradas"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Create Parada",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"viagem_id\": 1,\n  \"ponto_id\": 1,\n  \"custo\": 50.0,\n  \"nota\": 4.0\n}"
-            },
-            "url": {
-              "raw": "{{base_url}}/paradas",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "paradas"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get Parada by ID",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/paradas/{{parada_id}}",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "paradas",
-                "{{parada_id}}"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Update Parada",
-          "request": {
-            "method": "PUT",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"viagem_id\": 1,\n  \"ponto_id\": 1,\n  \"custo\": 60.0,\n  \"nota\": 4.5\n}"
-            },
-            "url": {
-              "raw": "{{base_url}}/paradas/{{parada_id}}",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "paradas",
-                "{{parada_id}}"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Delete Parada",
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/paradas/{{parada_id}}",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "paradas",
-                "{{parada_id}}"
-              ]
-            }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "Itens",
-      "item": [
-        {
-          "name": "Get All Itens",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/itens",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "itens"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Create Item",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"viagem_id\": 1,\n  \"nome\": \"Item 1\",\n  \"quantidade\": 2\n}"
-            },
-            "url": {
-              "raw": "{{base_url}}/itens",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "itens"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get Item by ID",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/itens/{{item_id}}",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "itens",
-                "{{item_id}}"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Update Item",
-          "request": {
-            "method": "PUT",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"viagem_id\": 1,\n  \"nome\": \"Item 1\",\n  \"quantidade\": 3\n}"
-            },
-            "url": {
-              "raw": "{{base_url}}/itens/{{item_id}}",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "itens",
-                "{{item_id}}"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Delete Item",
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "url": {
-              "raw": "{{base_url}}/itens/{{item_id}}",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "itens",
-                "{{item_id}}"
-              ]
-            }
-          },
-          "response": []
-        }
-      ]
-    }    
-  ],
-  "variable": [
-    {
-      "key": "base_url",
-      "value": "http://localhost:3000",
-      "type": "string"
-    },
-    {
-      "key": "token",
-      "value": "",
-      "type": "string",
-      "disabled": false
-    }
-  ]
+	"info": {
+		"_postman_id": "bbd018b2-c493-428b-8e49-d16360736bfd",
+		"name": "Trippler",
+		"description": "Collection for testing Your API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20431565",
+		"_collection_link": "https://lunar-escape-54083.postman.co/workspace/My-Workspace~7bd03bd6-0545-452b-83b7-8bf0184e70fb/collection/20431565-bbd018b2-c493-428b-8e49-d16360736bfd?action=share&creator=20431565&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"shaiboesing\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"login"
+							]
+						},
+						"description": "User login"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODY5ODAzOTMsImV4cCI6MTY4Njk4Mzk5M30._p9IGEG1xCPHw8NB435eoJcZaYEhBfOQZnsYNID9Dzg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nome\": \"John Doe\",\n  \"username\": \"johndoe\",\n  \"email\": \"john.doe@example.com\",\n  \"endereco\": \"123 Main St\",\n  \"telefone\": \"123-456-7890\",\n  \"data_nasc\": \"1990-01-01\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/{{user_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"John Doe\",\n  \"username\": \"johndoe\",\n  \"email\": \"john.doe@example.com\",\n  \"endereco\": \"123 Main St\",\n  \"telefone\": \"123-456-7890\",\n  \"data_nasc\": \"1990-01-01\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/users/{{user_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/{{user_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Friendship",
+			"item": [
+				{
+					"name": "Create Friendship",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id_usuario_2\": 2\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/friendships",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"friendships"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Friendship by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDIzNTYzLCJleHAiOjE2ODcwMjcxNjN9.mFSBMNeuR6amEe6J9EqefnooaaAFFDT-fGhVZud3abg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/friendships/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"friendships",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Friendship",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/friendships/{{friendship_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"friendships",
+								"{{friendship_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Trip",
+			"item": [
+				{
+					"name": "Create Trip",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDE5MzUyLCJleHAiOjE2ODcwMjI5NTJ9.3LgFtgkHki2-v8ix2t0QNbrvL7xVt5TbK-WOA8cLtOM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data_inicio\": \"2023-06-20\",\n  \"data_fim\": \"2023-06-30\",\n  \"cidade\": \"Paris\",\n  \"pais\": \"France\",\n  \"descricao\": \"Viagem incrível para Paris\",\n  \"nome\": \"Viagem a Paris\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/trips",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"trips"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Trip by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDE5MzUyLCJleHAiOjE2ODcwMjI5NTJ9.3LgFtgkHki2-v8ix2t0QNbrvL7xVt5TbK-WOA8cLtOM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/trips/10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"trips",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Trip",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDIxMjQ4LCJleHAiOjE2ODcwMjQ4NDh9.X2bHqddMAof8Ezi8RQYPFVae90xBj0Kouv0FIgVZOd0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data_inicio\": \"2023-09-12\",\n  \"data_fim\": \"2023-10-13\",\n  \"cidade\": \"Paris\",\n  \"pais\": \"France\",\n  \"descricao\": \"Viagem incrível para Paris\",\n  \"nome\": \"Viagem a Paris\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/trips/10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"trips",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Trip",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDIxMjQ4LCJleHAiOjE2ODcwMjQ4NDh9.X2bHqddMAof8Ezi8RQYPFVae90xBj0Kouv0FIgVZOd0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/trips/10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"trips",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Trips",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDE5MzUyLCJleHAiOjE2ODcwMjI5NTJ9.3LgFtgkHki2-v8ix2t0QNbrvL7xVt5TbK-WOA8cLtOM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/trips",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"trips"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pontos Turísticos",
+			"item": [
+				{
+					"name": "Get All Turistic Spots",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDQxNzg0LCJleHAiOjE2ODcwNDUzODR9.FLcPPXj4K5hshVjEG940Y8vXfP--C0KbjcjoExMVrDk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/turistic-spots",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"turistic-spots"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Ponto Turístico",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDQxNzg0LCJleHAiOjE2ODcwNDUzODR9.FLcPPXj4K5hshVjEG940Y8vXfP--C0KbjcjoExMVrDk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id_categoria\": 2,\n  \"nome\": \"Praia do Gravatá\",\n  \"localizacao\": \"Florianópolis\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/turistic-spots",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"turistic-spots"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Ponto Turístico by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDQxNzg0LCJleHAiOjE2ODcwNDUzODR9.FLcPPXj4K5hshVjEG940Y8vXfP--C0KbjcjoExMVrDk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/turistic-spots/16",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"turistic-spots",
+								"16"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Ponto Turístico",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDQxODgxLCJleHAiOjE2ODcwNDU0ODF9.uHJvjnMrD8QcXRkstwmGLXxFYRtJ4eUI-nd9Wo5dolM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"endereco\": \"Rua de Rivoli, 75001 Paris, França\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/turistic-spots/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"turistic-spots",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Ponto Turístico",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDQwNDk2LCJleHAiOjE2ODcwNDQwOTZ9.P1Ol2dtbGsAwL5g6ODAYm4Q7K9odhE0s3G-Fst_R-kY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/turistic-spots/100",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"turistic-spots",
+								"100"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Viagem Items",
+			"item": [
+				{
+					"name": "Get All Viagem Items",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/viagem-items",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"viagem-items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Viagem Item",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"viagem_id\": 1,\n  \"ponto_id\": 1,\n  \"data\": \"2023-06-15\",\n  \"nota\": 4.5,\n  \"comentario\": \"Comentário sobre o Viagem Item 1\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/viagem-items",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"viagem-items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Viagem Item by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/viagem-items/{{viagem_item_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"viagem-items",
+								"{{viagem_item_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Viagem Item",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"viagem_id\": 1,\n  \"ponto_id\": 1,\n  \"data\": \"2023-06-15\",\n  \"nota\": 4.5,\n  \"comentario\": \"Novo comentário sobre o Viagem Item 1\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/viagem-items/{{viagem_item_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"viagem-items",
+								"{{viagem_item_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Viagem Item",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/viagem-items/{{viagem_item_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"viagem-items",
+								"{{viagem_item_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reviews",
+			"item": [
+				{
+					"name": "Get All Reviews For Trip",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDI0NDEwLCJleHAiOjE2ODcwMjgwMTB9.sHN4AF-jEUQeJKHJCFiukl8z0g5GhwHxB7e5fUj57h8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/trip/10/reviews",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"trip",
+								"10",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Review",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDI0NDEwLCJleHAiOjE2ODcwMjgwMTB9.sHN4AF-jEUQeJKHJCFiukl8z0g5GhwHxB7e5fUj57h8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nota\": 4.5,\n  \"descricao\": \"Maravilhosa viagem. Mas choveu muito!\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/trip/10/reviews",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"trip",
+								"10",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Review",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDI0NDEwLCJleHAiOjE2ODcwMjgwMTB9.sHN4AF-jEUQeJKHJCFiukl8z0g5GhwHxB7e5fUj57h8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/reviews/23",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"reviews",
+								"23"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Paradas",
+			"item": [
+				{
+					"name": "Get All Paradas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/paradas",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"paradas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Parada",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"viagem_id\": 1,\n  \"ponto_id\": 1,\n  \"custo\": 50.0,\n  \"nota\": 4.0\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/paradas",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"paradas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Parada by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/paradas/{{parada_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"paradas",
+								"{{parada_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Parada",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"viagem_id\": 1,\n  \"ponto_id\": 1,\n  \"custo\": 60.0,\n  \"nota\": 4.5\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/paradas/{{parada_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"paradas",
+								"{{parada_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Parada",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/paradas/{{parada_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"paradas",
+								"{{parada_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Itens",
+			"item": [
+				{
+					"name": "Get All Itens",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/itens",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"itens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Item",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"viagem_id\": 1,\n  \"nome\": \"Item 1\",\n  \"quantidade\": 2\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/itens",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"itens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Item by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/itens/{{item_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"itens",
+								"{{item_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Item",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"viagem_id\": 1,\n  \"nome\": \"Item 1\",\n  \"quantidade\": 3\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/itens/{{item_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"itens",
+								"{{item_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Item",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/itens/{{item_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"itens",
+								"{{item_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "Get All Categories",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDMxMDM5LCJleHAiOjE2ODcwMzQ2Mzl9.tNDo5z_RAvis3oUB-W972uBdAoMGiU2Mvdng5HEpUs0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/categories",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Category by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDMxMDM5LCJleHAiOjE2ODcwMzQ2Mzl9.tNDo5z_RAvis3oUB-W972uBdAoMGiU2Mvdng5HEpUs0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/categories/17",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"categories",
+								"17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDMxMDM5LCJleHAiOjE2ODcwMzQ2Mzl9.tNDo5z_RAvis3oUB-W972uBdAoMGiU2Mvdng5HEpUs0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Praias\",\r\n  \"descricao\": \"Belezas naturais e mar.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/categories",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDMyMTU4LCJleHAiOjE2ODcwMzU3NTh9.250vlYUSLqf653S-TmkbMQS44HTq5G13r6JRNSPsVZ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/categories/4",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"categories",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "auth_token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJzaGFpYm9lc2luZyIsImlhdCI6MTY4NzAxMDgxNCwiZXhwIjoxNjg3MDE0NDE0fQ.Ewf-bahVYdm4UUgGNeKfLNg2L4uQvdWffQ4u4OPGEys"
+		}
+	]
 }
