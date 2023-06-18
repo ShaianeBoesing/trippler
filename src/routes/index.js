@@ -4,9 +4,10 @@ const login = require('../controllers/login_controller');
 const users = require('../controllers/users_controller');
 const friendships = require('../controllers/friendships_controller');
 const trips = require('../controllers/trips_controller');
-const turisticSpots = require('../controllers/turistic_spot_controller');
+const reviews = require('../controllers/reviews_controller');
+const categories = require('../controllers/categories_controller');
+const turistic_spots = require('../controllers/turistic_spots_controller');
 const tripItem = require('../controllers/trip_items_controller');
-const reviews = require('../controllers/review_controller');
 const paradas = require('../controllers/parada_controller');
 
 
@@ -31,12 +32,23 @@ routes.get('/trips/:id', authenticate_token_middleware.authenticateToken, trips.
 routes.put('/trips/:id', authenticate_token_middleware.authenticateToken, trips.update);
 routes.delete('/trips/:id', authenticate_token_middleware.authenticateToken, trips.delete);
 
-// // Pontos Turísticos
-// routes.get('/pontos-turisticos', turisticSpots.index); // Listar todos os pontos turísticos
-// routes.post('/pontos-turisticos', turisticSpots.create); // Criar um novo ponto turístico
-// routes.get('/pontos-turisticos/:id', turisticSpots.show); // Obter os detalhes de um ponto turístico específico
-// routes.put('/pontos-turisticos/:id', turisticSpots.update); // Atualizar as informações de um ponto turístico específico
-// routes.delete('/pontos-turisticos/:id', turisticSpots.delete); // Excluir um ponto turístico específico
+// Reviews
+routes.get('/trip/:tripId/reviews', authenticate_token_middleware.authenticateToken, reviews.index); // Listar todas as avaliações
+routes.post('/trip/:tripId/reviews', authenticate_token_middleware.authenticateToken, reviews.create); // Criar uma nova avaliação
+routes.delete('/reviews/:id', authenticate_token_middleware.authenticateToken, reviews.delete); // Excluir uma avaliação específica
+
+// Categories
+routes.get('/categories', authenticate_token_middleware.authenticateToken, categories.index); // Listar todas as avaliações
+routes.get('/categories/:id', authenticate_token_middleware.authenticateToken, categories.show); // Listar todas as avaliações
+routes.post('/categories', authenticate_token_middleware.authenticateToken, categories.create); // Criar uma nova avaliação
+routes.delete('/categories/:id', authenticate_token_middleware.authenticateToken, categories.delete); // Excluir uma avaliação específica
+
+// Pontos Turísticos
+routes.get('/turistic-spots',authenticate_token_middleware.authenticateToken, turistic_spots.index); // Listar todos os pontos turísticos
+routes.post('/turistic-spots', authenticate_token_middleware.authenticateToken, turistic_spots.create); // Criar um novo ponto turístico
+routes.get('/turistic-spots/:id', authenticate_token_middleware.authenticateToken, turistic_spots.show); // Obter os detalhes de um ponto turístico específico
+routes.put('/turistic-spots/:id', authenticate_token_middleware.authenticateToken, turistic_spots.update); // Atualizar as informações de um ponto turístico específico
+routes.delete('/turistic-spots/:id', authenticate_token_middleware.authenticateToken, turistic_spots.delete); // Excluir um ponto turístico específico
 
 // // Viagem Items
 // routes.get('/viagem-items', tripItem.index); // Listar todos os itens de viagem
@@ -45,12 +57,6 @@ routes.delete('/trips/:id', authenticate_token_middleware.authenticateToken, tri
 // routes.put('/viagem-items/:viagemId/:itemId', tripItem.update); // Atualizar as informações de um item de viagem específico
 // routes.delete('/viagem-items/:viagemId/:itemId', tripItem.delete); // Excluir um item de viagem específico
 
-// // Reviews
-// routes.get('/reviews', reviews.index); // Listar todas as avaliações
-// routes.post('/reviews', reviews.create); // Criar uma nova avaliação
-// routes.get('/reviews/:id', reviews.show); // Obter os detalhes de uma avaliação específica
-// routes.put('/reviews/:id', reviews.update); // Atualizar as informações de uma avaliação específica
-// routes.delete('/reviews/:id', reviews.delete); // Excluir uma avaliação específica
 
 // // Paradas
 // routes.get('/paradas', paradas.index); // Listar todas as paradas
