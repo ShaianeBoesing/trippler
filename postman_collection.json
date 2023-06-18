@@ -46,6 +46,16 @@
 				{
 					"name": "Get All Users",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -99,6 +109,16 @@
 				{
 					"name": "Get User by ID",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -117,6 +137,16 @@
 				{
 					"name": "Update User",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [
 							{
@@ -144,6 +174,16 @@
 				{
 					"name": "Delete User",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
@@ -167,6 +207,16 @@
 				{
 					"name": "Create Friendship",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -198,7 +248,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDIzNTYzLCJleHAiOjE2ODcwMjcxNjN9.mFSBMNeuR6amEe6J9EqefnooaaAFFDT-fGhVZud3abg",
+									"value": "{{auth_token}}",
 									"type": "string"
 								}
 							]
@@ -221,6 +271,16 @@
 				{
 					"name": "Delete Friendship",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
@@ -249,7 +309,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDE5MzUyLCJleHAiOjE2ODcwMjI5NTJ9.3LgFtgkHki2-v8ix2t0QNbrvL7xVt5TbK-WOA8cLtOM",
+									"value": "{{auth_token}}",
 									"type": "string"
 								}
 							]
@@ -285,7 +345,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDE5MzUyLCJleHAiOjE2ODcwMjI5NTJ9.3LgFtgkHki2-v8ix2t0QNbrvL7xVt5TbK-WOA8cLtOM",
+									"value": "{{auth_token}}",
 									"type": "string"
 								}
 							]
@@ -313,7 +373,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDIxMjQ4LCJleHAiOjE2ODcwMjQ4NDh9.X2bHqddMAof8Ezi8RQYPFVae90xBj0Kouv0FIgVZOd0",
+									"value": "{{auth_token}}",
 									"type": "string"
 								}
 							]
@@ -350,7 +410,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDIxMjQ4LCJleHAiOjE2ODcwMjQ4NDh9.X2bHqddMAof8Ezi8RQYPFVae90xBj0Kouv0FIgVZOd0",
+									"value": "{{auth_token}}",
 									"type": "string"
 								}
 							]
@@ -378,7 +438,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDE5MzUyLCJleHAiOjE2ODcwMjI5NTJ9.3LgFtgkHki2-v8ix2t0QNbrvL7xVt5TbK-WOA8cLtOM",
+									"value": "{{auth_token}}",
 									"type": "string"
 								}
 							]
@@ -410,7 +470,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDQxNzg0LCJleHAiOjE2ODcwNDUzODR9.FLcPPXj4K5hshVjEG940Y8vXfP--C0KbjcjoExMVrDk",
+									"value": "{{auth_token}}",
 									"type": "string"
 								}
 							]
@@ -437,7 +497,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDQxNzg0LCJleHAiOjE2ODcwNDUzODR9.FLcPPXj4K5hshVjEG940Y8vXfP--C0KbjcjoExMVrDk",
+									"value": "{{auth_token}}",
 									"type": "string"
 								}
 							]
@@ -450,8 +510,8 @@
 							}
 						],
 						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"id_categoria\": 2,\n  \"nome\": \"Praia do Gravatá\",\n  \"localizacao\": \"Florianópolis\"\n}"
+							"mode": "formdata",
+							"formdata": []
 						},
 						"url": {
 							"raw": "{{base_url}}/turistic-spots",
@@ -473,7 +533,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDQxNzg0LCJleHAiOjE2ODcwNDUzODR9.FLcPPXj4K5hshVjEG940Y8vXfP--C0KbjcjoExMVrDk",
+									"value": "{{auth_token}}",
 									"type": "string"
 								}
 							]
@@ -501,7 +561,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDQxODgxLCJleHAiOjE2ODcwNDU0ODF9.uHJvjnMrD8QcXRkstwmGLXxFYRtJ4eUI-nd9Wo5dolM",
+									"value": "{{auth_token}}",
 									"type": "string"
 								}
 							]
@@ -515,7 +575,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"endereco\": \"Rua de Rivoli, 75001 Paris, França\"\n}"
+							"raw": "{\n  \"localizacao\": \"Rua de Rivoli, 75001 Paris, França\"\n}"
 						},
 						"url": {
 							"raw": "{{base_url}}/turistic-spots/1",
@@ -538,7 +598,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDQwNDk2LCJleHAiOjE2ODcwNDQwOTZ9.P1Ol2dtbGsAwL5g6ODAYm4Q7K9odhE0s3G-Fst_R-kY",
+									"value": "{{auth_token}}",
 									"type": "string"
 								}
 							]
@@ -546,124 +606,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/turistic-spots/100",
+							"raw": "{{base_url}}/turistic-spots/106",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"turistic-spots",
-								"100"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Viagem Items",
-			"item": [
-				{
-					"name": "Get All Viagem Items",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/viagem-items",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"viagem-items"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create Viagem Item",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"viagem_id\": 1,\n  \"ponto_id\": 1,\n  \"data\": \"2023-06-15\",\n  \"nota\": 4.5,\n  \"comentario\": \"Comentário sobre o Viagem Item 1\"\n}"
-						},
-						"url": {
-							"raw": "{{base_url}}/viagem-items",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"viagem-items"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get Viagem Item by ID",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/viagem-items/{{viagem_item_id}}",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"viagem-items",
-								"{{viagem_item_id}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update Viagem Item",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"viagem_id\": 1,\n  \"ponto_id\": 1,\n  \"data\": \"2023-06-15\",\n  \"nota\": 4.5,\n  \"comentario\": \"Novo comentário sobre o Viagem Item 1\"\n}"
-						},
-						"url": {
-							"raw": "{{base_url}}/viagem-items/{{viagem_item_id}}",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"viagem-items",
-								"{{viagem_item_id}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete Viagem Item",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/viagem-items/{{viagem_item_id}}",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"viagem-items",
-								"{{viagem_item_id}}"
+								"106"
 							]
 						}
 					},
@@ -682,7 +631,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDI0NDEwLCJleHAiOjE2ODcwMjgwMTB9.sHN4AF-jEUQeJKHJCFiukl8z0g5GhwHxB7e5fUj57h8",
+									"value": "{{auth_token}}",
 									"type": "string"
 								}
 							]
@@ -711,7 +660,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDI0NDEwLCJleHAiOjE2ODcwMjgwMTB9.sHN4AF-jEUQeJKHJCFiukl8z0g5GhwHxB7e5fUj57h8",
+									"value": "{{auth_token}}",
 									"type": "string"
 								}
 							]
@@ -749,7 +698,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDI0NDEwLCJleHAiOjE2ODcwMjgwMTB9.sHN4AF-jEUQeJKHJCFiukl8z0g5GhwHxB7e5fUj57h8",
+									"value": "{{auth_token}}",
 									"type": "string"
 								}
 							]
@@ -775,17 +724,28 @@
 			"name": "Paradas",
 			"item": [
 				{
-					"name": "Get All Paradas",
+					"name": "Get Paradas by Trip",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/paradas",
+							"raw": "{{base_url}}/paradas/1",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"paradas"
+								"paradas",
+								"1"
 							]
 						}
 					},
@@ -794,6 +754,16 @@
 				{
 					"name": "Create Parada",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -803,60 +773,17 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"viagem_id\": 1,\n  \"ponto_id\": 1,\n  \"custo\": 50.0,\n  \"nota\": 4.0\n}"
+							"raw": "{\n  \"custo\": 50.0,\n  \"nota\": 4.0\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/paradas",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"paradas"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get Parada by ID",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/paradas/{{parada_id}}",
+							"raw": "{{base_url}}/paradas/1/20",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"paradas",
-								"{{parada_id}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update Parada",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"viagem_id\": 1,\n  \"ponto_id\": 1,\n  \"custo\": 60.0,\n  \"nota\": 4.5\n}"
-						},
-						"url": {
-							"raw": "{{base_url}}/paradas/{{parada_id}}",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"paradas",
-								"{{parada_id}}"
+								"1",
+								"20"
 							]
 						}
 					},
@@ -865,16 +792,312 @@
 				{
 					"name": "Delete Parada",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
 						"url": {
-							"raw": "{{base_url}}/paradas/{{parada_id}}",
+							"raw": "{{base_url}}/paradas/1/22",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"paradas",
-								"{{parada_id}}"
+								"1",
+								"22"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "Get All Categories",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/categories",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Category by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/categories/17",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"categories",
+								"17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Praias\",\r\n  \"descricao\": \"Belezas naturais e mar.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/categories",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/categories/4",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"categories",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Midia",
+			"item": [
+				{
+					"name": "Upload Midia",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "arquivo",
+									"description": "Adicione a foto de sua viagem",
+									"type": "file",
+									"src": "/C:/Users/shaia/OneDrive/Imagens/eu/WhatsApp Image 2022-09-25 at 20.03.41.jpeg"
+								},
+								{
+									"key": "id_viagem",
+									"value": "1",
+									"description": "id_viagem",
+									"type": "text"
+								},
+								{
+									"key": "descricao",
+									"value": "Foto no Floripa Shopping",
+									"description": "Descreva sua imagem",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/midias",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"midias"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Trip Item",
+			"item": [
+				{
+					"name": "Get Trip Items by Trip Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/tripItens/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tripItens",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Trip Item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id_viagem\": \"1\",\r\n  \"id_item\": \"1\",\r\n  \"quantidade\": \"2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/tripItens/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tripItens",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Trip Item",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tripItens/1/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tripItens",
+								"1",
+								"1"
 							]
 						}
 					},
@@ -947,35 +1170,18 @@
 					"response": []
 				},
 				{
-					"name": "Update Item",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"viagem_id\": 1,\n  \"nome\": \"Item 1\",\n  \"quantidade\": 3\n}"
-						},
-						"url": {
-							"raw": "{{base_url}}/itens/{{item_id}}",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"itens",
-								"{{item_id}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Delete Item",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
@@ -986,130 +1192,6 @@
 							"path": [
 								"itens",
 								"{{item_id}}"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Categories",
-			"item": [
-				{
-					"name": "Get All Categories",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDMxMDM5LCJleHAiOjE2ODcwMzQ2Mzl9.tNDo5z_RAvis3oUB-W972uBdAoMGiU2Mvdng5HEpUs0",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/categories",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"categories"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get Category by ID",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDMxMDM5LCJleHAiOjE2ODcwMzQ2Mzl9.tNDo5z_RAvis3oUB-W972uBdAoMGiU2Mvdng5HEpUs0",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/categories/17",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"categories",
-								"17"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create Category",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDMxMDM5LCJleHAiOjE2ODcwMzQ2Mzl9.tNDo5z_RAvis3oUB-W972uBdAoMGiU2Mvdng5HEpUs0",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"nome\": \"Praias\",\r\n  \"descricao\": \"Belezas naturais e mar.\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/categories",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"categories"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete Category",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJ1c2VybmFtZSI6InNoYWlib2VzaW5nIiwiaWF0IjoxNjg3MDMyMTU4LCJleHAiOjE2ODcwMzU3NTh9.250vlYUSLqf653S-TmkbMQS44HTq5G13r6JRNSPsVZ4",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/categories/4",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"categories",
-								"4"
 							]
 						}
 					},

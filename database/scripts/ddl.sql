@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS Viagem_Item (
 
 CREATE TABLE IF NOT EXISTS Midia (
     id_midia int AUTO_INCREMENT PRIMARY KEY,
-    arquivo blob NOT NULL,
+    arquivo VARCHAR(255) NOT NULL,
     descricao VARCHAR(150),
     id_viagem int NOT NULL,
     FOREIGN KEY (id_viagem) REFERENCES Viagem(id_viagem) 

@@ -1,3 +1,14 @@
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+  destination: 'images/',
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  }
+});
+
+const upload = multer({ storage: storage });
+
 const routes = require('express').Router();
 const authenticate_token_middleware = require('../middlewares/authenticate_token_middleware')
 const login = require('../controllers/login_controller');
@@ -8,6 +19,7 @@ const reviews = require('../controllers/reviews_controller');
 const categories = require('../controllers/categories_controller');
 const turistic_spots = require('../controllers/turistic_spots_controller');
 const paradas = require('../controllers/paradas_controller');
+const midia = require('../controllers/midias_controller');
 
 routes.post('/login', login.authenticate);
 
@@ -52,5 +64,10 @@ routes.delete('/turistic-spots/:id', authenticate_token_middleware.authenticateT
 routes.get('/paradas/:tripId', authenticate_token_middleware.authenticateToken, paradas.index); 
 routes.post('/paradas/:tripId/:turisticSpotId', authenticate_token_middleware.authenticateToken, paradas.create);
 routes.delete('/paradas/:tripId/:turisticSpotId', authenticate_token_middleware.authenticateToken, paradas.delete);
+
+// Midia
+routes.post('/midias', upload.single('arquivo'), authenticate_token_middleware.authenticateToken, midia.create); 
+routes.get('/midias', authenticate_token_middleware.authenticateToken, midia.show); 
+routes.delete('/midias',authenticate_token_middleware.authenticateToken, midia.delete); 
 
 module.exports = routes;
