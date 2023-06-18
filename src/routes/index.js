@@ -35,7 +35,9 @@ routes.delete('/users/:id', authenticate_token_middleware.authenticateToken,  us
 // Frindships
 routes.post('/friendships', authenticate_token_middleware.authenticateToken, friendships.create);
 routes.get('/friendships/:id', authenticate_token_middleware.authenticateToken, friendships.show); 
+routes.get('/friendships', authenticate_token_middleware.authenticateToken, friendships.index); 
 routes.delete('/friendships/:id', authenticate_token_middleware.authenticateToken, friendships.delete);
+routes.put('/friendships/:id', authenticate_token_middleware.authenticateToken, friendships.update);
 
 // Trips
 routes.get('/trips', authenticate_token_middleware.authenticateToken, trips.index); 

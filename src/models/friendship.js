@@ -33,12 +33,40 @@ class Friendship {
     const friendshipData = friendshipRows[0];
     return new Friendship(friendshipData);
   }
+  
+  static async getFriendshipsByUser( userId) {
+    const query = 'SELECT * FROM Amizade WHERE id_usuario_1 = ?';
+
+    const db = new Database();
+    const friendshipRows = await db.raw(query, [userId]);
+
+    if (friendshipRows.length === 0) {
+      return null;
+    }
+
+    return  friendshipRows;
+  }
 
   static async deleteFriendship(friendshipId, userId) {
-    const query = 'DELETE FROM Amizade WHERE id_amizade = ? AND id_usuario = ?';
+    const query = 'DELETE FROM Amizade WHERE id_amizade = ? AND id_usuario_1 = ?';
 
     const db = new Database();
     await db.raw(query, [friendshipId, userId]);
+  }
+
+  
+  static async updateFriendship(friendshipId, userId, updatedFriendship) {
+    const values = [updatedFriendship.data_inicio_amizade, userId, friendshipId];
+    const set_values = Object.keys(updatedFriendship).map(column => `${column} = ?`).join(', ');
+
+    const db = new Database();
+    await db.raw(`UPDATE Amizade SET ${set_values} WHERE id_usuario_1 = ? AND id_amizade = ?`, values);
+
+    updatedFriendship.id_usuario = userId;
+    updatedFriendship.id_viagem = friendshipId;
+
+    return new Friendship(updatedFriendship);
+
   }
 }
 
