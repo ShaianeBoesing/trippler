@@ -15,6 +15,8 @@ const login = require('../controllers/login_controller');
 const users = require('../controllers/users_controller');
 const friendships = require('../controllers/friendships_controller');
 const trips = require('../controllers/trips_controller');
+const itens = require('../controllers/itens_controller');
+const tripItens = require('../controllers/trip_itens_controller');
 const reviews = require('../controllers/reviews_controller');
 const categories = require('../controllers/categories_controller');
 const turistic_spots = require('../controllers/turistic_spots_controller');
@@ -41,6 +43,17 @@ routes.post('/trips', authenticate_token_middleware.authenticateToken, trips.cre
 routes.get('/trips/:id', authenticate_token_middleware.authenticateToken, trips.show); 
 routes.put('/trips/:id', authenticate_token_middleware.authenticateToken, trips.update);
 routes.delete('/trips/:id', authenticate_token_middleware.authenticateToken, trips.delete);
+
+// Item
+routes.get('/itens', authenticate_token_middleware.authenticateToken, itens.index); 
+routes.post('/itens', authenticate_token_middleware.authenticateToken, itens.create); 
+routes.get('/itens/:id', authenticate_token_middleware.authenticateToken, itens.show); 
+routes.delete('/itens/:id', authenticate_token_middleware.authenticateToken, itens.delete);
+
+// Trip Item
+routes.get('/tripItens/:id', authenticate_token_middleware.authenticateToken, tripItens.index); 
+routes.post('/tripItens', authenticate_token_middleware.authenticateToken, tripItens.create); 
+routes.delete('/tripItens/:tripId/:itemId', authenticate_token_middleware.authenticateToken, tripItens.delete);
 
 // Reviews
 routes.get('/trip/:tripId/reviews', authenticate_token_middleware.authenticateToken, reviews.index);
