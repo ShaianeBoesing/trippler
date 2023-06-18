@@ -3,6 +3,14 @@
 const Database = require('../../database');
 const db = new Database();
 
+class UserNotTripItemOwner extends Error {
+  constructor(message = 'Você não tem permissão para apagar este Trip Item.', errorCode = 403) {
+    super(message);
+    this.name = 'UserNotParadaOwner';
+    this.errorCode = errorCode;
+  }
+}
+
 class Trip_Item {
   constructor(trip_item) {
     this.id_viagem = trip_item.id_viagem;
@@ -33,7 +41,7 @@ class Trip_Item {
   
     const tripItemOwner = await db.raw(selectUser, [tripId]);
     if (tripItemOwner[0].id_usuario !== userId) {
-      throw new Exception();
+      throw new UserNotTripItemOwner();
     }
   
     const deleteTripItem = 'DELETE Viagem_Item\
@@ -46,4 +54,4 @@ class Trip_Item {
   }
 }
 
-module.exports = Trip_Item;
+module.exports = [Trip_Item, UserNotTripItemOwner];

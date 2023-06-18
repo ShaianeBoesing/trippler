@@ -1,4 +1,4 @@
-const TripItem = require('../models/trip_itens');
+const [TripItem, UserNotTripItemOwner] = require('../models/trip_itens');
 
 exports.index = async function(req, res) {
     try {
@@ -18,7 +18,7 @@ exports.create = async function(req, res) {
     } catch (error) {
       console.log(error);
       res.status(500).json({ error: 'Erro ao criar Item de Viagem' });
-      }
+    }
 };
 
 exports.update = async function(req, res) {
@@ -41,6 +41,11 @@ exports.delete = async function(req, res) {
         await TripItem.deleteTripItem(tripId, itemId, userId);
         res.status(204).json();
     } catch (error) {
-        res.status(500).json({ error: 'Erro ao excluir Item de Viagem' });
+        console.log(error)
+        if (error instanceof UserNotTripItemOwner) {
+            res.status(error.errorCode).json({ error: error.message });
+        } else {
+            res.status(500).json({ error: 'Erro ao deletar parada' });
+        }
     }
 };

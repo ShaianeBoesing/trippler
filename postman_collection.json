@@ -1058,7 +1058,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"id_viagem\": \"1\",\r\n  \"id_item\": \"1\",\r\n  \"quantidade\": \"2\"\r\n}",
+							"raw": "{\r\n  \"id_viagem\": \"1\",\r\n  \"id_item\": \"1\",\r\n  \"quantidade\": \"2\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1087,91 +1087,6 @@
 				{
 					"name": "Delete Trip Item",
 					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/tripItens/1/1",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"tripItens",
-								"1",
-								"1"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Itens",
-			"item": [
-				{
-					"name": "Get All Itens",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/itens",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"itens"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create Item",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"viagem_id\": 1,\n  \"nome\": \"Item 1\",\n  \"quantidade\": 2\n}"
-						},
-						"url": {
-							"raw": "{{base_url}}/itens",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"itens"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get Item by ID",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/itens/{{item_id}}",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"itens",
-								"{{item_id}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete Item",
-					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
@@ -1185,13 +1100,14 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/itens/{{item_id}}",
+							"raw": "{{base_url}}/tripItens/1/1",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"itens",
-								"{{item_id}}"
+								"tripItens",
+								"1",
+								"1"
 							]
 						}
 					},

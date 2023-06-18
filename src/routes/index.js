@@ -80,7 +80,5 @@ routes.delete('/paradas/:tripId/:turisticSpotId', authenticate_token_middleware.
 
 // Midia
 routes.post('/midias', upload.single('arquivo'), authenticate_token_middleware.authenticateToken, midia.create); 
-routes.get('/midias', authenticate_token_middleware.authenticateToken, midia.show); 
-routes.delete('/midias',authenticate_token_middleware.authenticateToken, midia.delete); 
 
 module.exports = routes;
