@@ -30,7 +30,7 @@ class Review {
     const query = 'SELECT * FROM Review WHERE id_viagem = ?';
 
     const db = new Database();
-    const reviewRows = await db.select(query, [tripId]);
+    const reviewRows = await db.raw(query, [tripId]);
 
     const reviews = reviewRows.map(reviewData => new Review(reviewData));
     return reviews;
