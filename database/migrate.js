@@ -33,8 +33,7 @@ const runQueries = async (paths) => {
     for (const query of queries) {
       try {
         await executeQuery(conn, query);
-        console.log('Done');
-        // console.log('Query executada com sucesso:', query);
+        console.log('Query executada com sucesso:', query);
       } catch (error) {
         console.error('Erro ao executar a query:', query);
         console.error(error);

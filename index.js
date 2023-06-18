@@ -1,9 +1,14 @@
+require('dotenv').config();
+
 const express = require('express');
 const session = require('express-session');
 const routes = require('./src/routes');
+const migrate = require('./database/migrate.js');
+
+const PORT = 3000;
+const HOST = '0.0.0.0';
+
 const app = express();
-const port = 3000;
-const host = '0.0.0.0';
 
 app.use(express.json());
 
@@ -14,7 +19,6 @@ app.use(session({
 }));
   
 app.use('/', routes);
+app.listen(PORT, HOST);
 
-app.listen(port, host);
-
-console.log("Server running!");
+console.log("Server running! :)");
