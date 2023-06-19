@@ -22,15 +22,16 @@ const categories = require('../controllers/categories_controller');
 const turistic_spots = require('../controllers/turistic_spots_controller');
 const paradas = require('../controllers/paradas_controller');
 const midia = require('../controllers/midias_controller');
+const standard = require('../controllers/standard_controller');
 
 routes.post('/login', login.authenticate);
 
 // Users
 routes.get('/users', authenticate_token_middleware.authenticateToken, users.index); 
 routes.post('/users', users.create); 
-routes.get('/users/:id', authenticate_token_middleware.authenticateToken,  users.show); 
-routes.put('/users/:id', authenticate_token_middleware.authenticateToken,  users.update);
-routes.delete('/users/:id', authenticate_token_middleware.authenticateToken,  users.delete);
+routes.get('/users/:id', authenticate_token_middleware.authenticateToken, users.show); 
+routes.put('/users/:id', authenticate_token_middleware.authenticateToken, users.update);
+routes.delete('/users/:id', authenticate_token_middleware.authenticateToken, users.delete);
 
 // Frindships
 routes.post('/friendships', authenticate_token_middleware.authenticateToken, friendships.create);
@@ -83,5 +84,10 @@ routes.delete('/paradas/:tripId/:turisticSpotId', authenticate_token_middleware.
 
 // Midia
 routes.post('/midias', upload.single('arquivo'), authenticate_token_middleware.authenticateToken, midia.create); 
+
+// 3 consultas padrão - pedidas no enunciado do trabalho
+routes.get('/consulta1', standard.query1);
+routes.get('/consulta2', standard.query2);
+routes.get('/consulta3/:userId', standard.query3); 
 
 module.exports = routes;
