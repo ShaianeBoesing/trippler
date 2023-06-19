@@ -187,13 +187,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/users/{{user_id}}",
+							"raw": "{{base_url}}/users/12",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"users",
-								"{{user_id}}"
+								"12"
 							]
 						}
 					},
