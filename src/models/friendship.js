@@ -34,7 +34,7 @@ class Friendship {
     return new Friendship(friendshipData);
   }
   
-  static async getFriendshipsByUser( userId) {
+  static async getFriendshipsByUser(userId) {
     const query = 'SELECT * FROM Amizade WHERE id_usuario_1 = ?';
 
     const db = new Database();
