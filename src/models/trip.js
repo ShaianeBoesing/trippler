@@ -1,9 +1,17 @@
 const Database = require('../../database');
 
 class TripNotFoundError extends Error {
-  constructor(message = 'Parada não encontrada.', errorCode = 404) {
+  constructor(message = 'Viagem não encontrada.', errorCode = 404) {
     super(message);
-    this.name = 'ParadaAlreadyExistsError';
+    this.name = 'TripNotFoundError';
+    this.errorCode = errorCode;
+  }
+}
+
+class UserNotTripOwner extends Error {
+  constructor(message = 'Você não tem permissão para modificar esta viagem.', errorCode = 403) {
+    super(message);
+    this.name = 'UserNotTripOwner';
     this.errorCode = errorCode;
   }
 }
@@ -82,4 +90,4 @@ class Trip {
   }
 }
 
-module.exports = [Trip, TripNotFoundError];
+module.exports = { Trip, TripNotFoundError, UserNotTripOwner };
