@@ -58,6 +58,7 @@ routes.put('/itens/:id', authenticate_token_middleware.authenticateToken, itens.
 routes.get('/tripItens/:id', authenticate_token_middleware.authenticateToken, tripItens.index); 
 routes.post('/tripItens', authenticate_token_middleware.authenticateToken, tripItens.create); 
 routes.delete('/tripItens/:tripId/:itemId', authenticate_token_middleware.authenticateToken, tripItens.delete);
+routes.put('/tripItens/:tripId/:itemId', authenticate_token_middleware.authenticateToken, tripItens.update);
 
 // Reviews
 routes.get('/trip/:tripId/reviews', authenticate_token_middleware.authenticateToken, reviews.index);
