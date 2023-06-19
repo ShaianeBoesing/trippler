@@ -81,6 +81,7 @@ routes.delete('/turistic-spots/:id', authenticate_token_middleware.authenticateT
 routes.get('/paradas/:tripId', authenticate_token_middleware.authenticateToken, paradas.index); 
 routes.post('/paradas/:tripId/:turisticSpotId', authenticate_token_middleware.authenticateToken, paradas.create);
 routes.delete('/paradas/:tripId/:turisticSpotId', authenticate_token_middleware.authenticateToken, paradas.delete);
+routes.put('/paradas/:tripId/:turisticSpotId', authenticate_token_middleware.authenticateToken, paradas.update);
 
 // Midia
 routes.post('/midias', upload.single('arquivo'), authenticate_token_middleware.authenticateToken, midia.create); 

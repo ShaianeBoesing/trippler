@@ -1,6 +1,6 @@
 // controllers/trip_controller.js
 
-const [Trip, TripNotFoundError] = require('../models/trip');
+const { Trip, TripNotFoundError } = require('../models/trip');
 
 exports.index = async function(req, res) {
   try {
