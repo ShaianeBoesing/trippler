@@ -78,7 +78,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2ODY5ODAzOTMsImV4cCI6MTY4Njk4Mzk5M30._p9IGEG1xCPHw8NB435eoJcZaYEhBfOQZnsYNID9Dzg",
+									"value": "{{auth_token}}",
 									"type": "string"
 								}
 							]
@@ -92,7 +92,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"nome\": \"John Doe\",\n  \"username\": \"johndoe\",\n  \"email\": \"john.doe@example.com\",\n  \"endereco\": \"123 Main St\",\n  \"telefone\": \"123-456-7890\",\n  \"data_nasc\": \"1990-01-01\"\n}"
+							"raw": "{\n  \"nome\": \"Shai teste\",\n  \"username\": \"sss\",\n  \"email\": \"sss@example.com\",\n  \"endereco\": \"123 Main St\",\n  \"telefone\": \"123-456-7890\",\n  \"data_nasc\": \"1990-01-01\"\n}"
 						},
 						"url": {
 							"raw": "{{base_url}}/users",
@@ -122,13 +122,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/users/{{user_id}}",
+							"raw": "{{base_url}}/users/13",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"users",
-								"{{user_id}}"
+								"13"
 							]
 						}
 					},
@@ -156,16 +156,16 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"nome\": \"John Doe\",\n  \"username\": \"johndoe\",\n  \"email\": \"john.doe@example.com\",\n  \"endereco\": \"123 Main St\",\n  \"telefone\": \"123-456-7890\",\n  \"data_nasc\": \"1990-01-01\"\n}"
+							"raw": "{\n  \"name\": \"John Doe\",\n  \"username\": \"johndoe\",\n  \"email\": \"john.doe@example.com\",\n  \"endereco\": \"123 Main St\",\n  \"telefone\": \"123-456-7890\",\n  \"data_nasc\": \"1990-01-01\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/users/{{user_id}}",
+							"raw": "{{base_url}}/users/13",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"users",
-								"{{user_id}}"
+								"13"
 							]
 						}
 					},
@@ -242,6 +242,9 @@
 				},
 				{
 					"name": "Get Friendship by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -255,14 +258,18 @@
 						},
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "{{base_url}}/friendships/1",
+							"raw": "{{base_url}}/friendships/2",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"friendships",
-								"1"
+								"2"
 							]
 						}
 					},
@@ -284,13 +291,84 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/friendships/{{friendship_id}}",
+							"raw": "{{base_url}}/friendships/2",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"friendships",
-								"{{friendship_id}}"
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Friendship",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data_inicio_amizade\": \"2023-10-10\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/friendships/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"friendships",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Friendships",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/friendships",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"friendships"
 							]
 						}
 					},
@@ -387,7 +465,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"data_inicio\": \"2023-09-12\",\n  \"data_fim\": \"2023-10-13\",\n  \"cidade\": \"Paris\",\n  \"pais\": \"France\",\n  \"descricao\": \"Viagem incrível para Paris\",\n  \"nome\": \"Viagem a Paris\"\n}"
+							"raw": "{\n    \"descricao\": \"Conhecendo Acapulco\"\n}"
 						},
 						"url": {
 							"raw": "{{base_url}}/trips/10",
@@ -510,8 +588,8 @@
 							}
 						],
 						"body": {
-							"mode": "formdata",
-							"formdata": []
+							"mode": "raw",
+							"raw": "{\r\n    \"localizacao\": \"Florianópolis, Lagoa da Conceição\",\r\n    \"nome\": \"Bar do Boni\",\r\n    \"id_categoria\": 2\r\n}"
 						},
 						"url": {
 							"raw": "{{base_url}}/turistic-spots",
@@ -541,13 +619,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/turistic-spots/16",
+							"raw": "{{base_url}}/turistic-spots/5",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"turistic-spots",
-								"16"
+								"5"
 							]
 						}
 					},
@@ -578,13 +656,13 @@
 							"raw": "{\n  \"localizacao\": \"Rua de Rivoli, 75001 Paris, França\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/turistic-spots/1",
+							"raw": "{{base_url}}/turistic-spots/5",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"turistic-spots",
-								"1"
+								"5"
 							]
 						}
 					},
@@ -606,13 +684,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/turistic-spots/106",
+							"raw": "{{base_url}}/turistic-spots/5",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"turistic-spots",
-								"106"
+								"5"
 							]
 						}
 					},
@@ -639,13 +717,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/trip/10/reviews",
+							"raw": "{{base_url}}/trip/5/reviews",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"trip",
-								"10",
+								"5",
 								"reviews"
 							]
 						}
@@ -674,16 +752,16 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"nota\": 4.5,\n  \"descricao\": \"Maravilhosa viagem. Mas choveu muito!\"\n}"
+							"raw": "{\n  \"nota\": 4.5,\n  \"descricao\": \"Maravilhosa praia. Mas choveu muito!\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/trip/10/reviews",
+							"raw": "{{base_url}}/trip/5/reviews",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"trip",
-								"10",
+								"5",
 								"reviews"
 							]
 						}
@@ -706,13 +784,50 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/reviews/23",
+							"raw": "{{base_url}}/reviews/5",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"reviews",
-								"23"
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Review",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nota\": 4.9,\r\n    \"descricao\": \"Não gostuei, asmei.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/reviews/5",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"reviews",
+								"5"
 							]
 						}
 					},
@@ -739,13 +854,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/paradas/1",
+							"raw": "{{base_url}}/paradas/10",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"paradas",
-								"1"
+								"10"
 							]
 						}
 					},
@@ -773,17 +888,17 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"custo\": 50.0,\n  \"nota\": 4.0\n}"
+							"raw": "{\n  \"nota\": 4.0,\n  \"custo\": 80.0\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/paradas/1/20",
+							"raw": "{{base_url}}/paradas/10/1",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"paradas",
-								"1",
-								"20"
+								"10",
+								"1"
 							]
 						}
 					},
@@ -809,14 +924,52 @@
 							"formdata": []
 						},
 						"url": {
-							"raw": "{{base_url}}/paradas/1/22",
+							"raw": "{{base_url}}/paradas/10/53",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"paradas",
-								"1",
-								"22"
+								"10",
+								"53"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Parada",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nota\": 5.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/paradas/10/54",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"paradas",
+								"10",
+								"54"
 							]
 						}
 					},
@@ -973,7 +1126,7 @@
 									"key": "arquivo",
 									"description": "Adicione a foto de sua viagem",
 									"type": "file",
-									"src": "/C:/Users/shaia/OneDrive/Imagens/eu/WhatsApp Image 2022-09-25 at 20.03.41.jpeg"
+									"src": []
 								},
 								{
 									"key": "id_viagem",
@@ -996,6 +1149,130 @@
 							],
 							"path": [
 								"midias"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Itens",
+			"item": [
+				{
+					"name": "Get All Itens",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/itens",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"itens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"viagem_id\": 1,\n  \"nome\": \"Item 1\",\n  \"quantidade\": 2\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/itens",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"itens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Item by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/itens/{{item_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"itens",
+								"{{item_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/itens/{{item_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"itens",
+								"{{item_id}}"
 							]
 						}
 					},
@@ -1116,6 +1393,26 @@
 			]
 		}
 	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
 	"variable": [
 		{
 			"key": "base_url",
@@ -1130,7 +1427,7 @@
 		},
 		{
 			"key": "auth_token",
-			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJzaGFpYm9lc2luZyIsImlhdCI6MTY4NzAxMDgxNCwiZXhwIjoxNjg3MDE0NDE0fQ.Ewf-bahVYdm4UUgGNeKfLNg2L4uQvdWffQ4u4OPGEys"
+			"value": "Me edite e inclua o token gerado pelo login em \"Current Value\""
 		}
 	]
 }

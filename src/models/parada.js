@@ -66,13 +66,22 @@ class Parada {
   
   static async updateParada(tripId, turisticSpotId, userId, updatedParada) {
     const db = new Database();
-
   
+    const queryCheckTrip = `SELECT id_viagem FROM Viagem WHERE id_viagem = ? LIMIT 1`;
+    const tripExists = await db.raw(queryCheckTrip, [tripId]);
+    if (tripExists.length === 0) 
+      throw new TripNotFoundError();
+
     const queryCheckTripOwner = `SELECT id_usuario FROM Viagem WHERE Viagem.id_viagem = ? LIMIT 1`;
     const tripOwner = await db.raw(queryCheckTripOwner, [tripId]);
     if (tripOwner[0].id_usuario != userId)
       throw new UserNotTripOwner();
     
+    const queryCheckTuristicSpot = `SELECT id_ponto FROM Ponto_Turistico WHERE id_ponto = ? LIMIT 1`;
+    const turisticSpotExists = await db.raw(queryCheckTuristicSpot, [turisticSpotId]);
+    if (turisticSpotExists.length === 0) 
+      throw new TuristicSpotNotFoundError();
+  
     const values = Object.values(updatedParada);
     values.push(turisticSpotId, tripId);
     const set_values = Object.keys(updatedParada).map(column => `${column} = ?`).join(', ');
