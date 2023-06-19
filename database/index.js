@@ -57,7 +57,7 @@ class Database {
     await this.connect();
     const [rows] = await this.connection.query(query, params);
     await this.close();
-    return [rows];
+    return rows;
   }
 
   async close() {

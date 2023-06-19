@@ -3,6 +3,22 @@
 const Database = require('../../database');
 const db = new Database();
 
+class ItemNotFoundError extends Error {
+  constructor(message = 'Item não encontrado.', errorCode = 404) {
+    super(message);
+    this.name = 'ItemNotFoundError';
+    this.errorCode = errorCode;
+  }
+}
+
+class ItemDependencyError extends Error {
+  constructor(message = 'A exclusão do item não é possível pois existem objetos vinculados a ele.', errorCode = 409) {
+    super(message);
+    this.name = 'ItemDependencyError';
+    this.errorCode = errorCode;
+  }
+}
+
 class Item {
   constructor(item) {
     this.id_item = item.id_item;
@@ -31,8 +47,30 @@ class Item {
   }
 
   static async deleteItem(itemId) {
+    const query = `SELECT id_item FROM Viagem_Item WHERE id_item = ? LIMIT 1`;
+    const itemUsed = await db.raw(query, [itemId]);
+
+    if (itemUsed.length > 0) {
+      throw new ItemDependencyError();
+    }
+    
     const id = {'id_item': itemId} 
-    await db.delete('Item', id);
+    const result = await db.delete('Item', id);
+    if (result.affectedRows == 0) {
+      throw new ItemNotFoundError();
+    }
+
+  }
+
+  static async updateItem(itemId, updatedItem) {
+    const id = { 'id_item': itemId };
+    const values = { 'nome': updatedItem["nome"] };
+    const result = await db.update('Item', id, values);
+    if (result.affectedRows == 0) {
+      throw new ItemNotFoundError();
+    }
+
+    return new Item(updatedItem);
   }
 
   static async listItens() {
@@ -45,4 +83,4 @@ class Item {
   }
 }
 
-module.exports = Item;
+module.exports = { Item, ItemNotFoundError, ItemDependencyError };
