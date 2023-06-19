@@ -84,7 +84,10 @@ routes.delete('/paradas/:tripId/:turisticSpotId', authenticate_token_middleware.
 routes.put('/paradas/:tripId/:turisticSpotId', authenticate_token_middleware.authenticateToken, paradas.update);
 
 // Midia
+routes.get('/midias/:tripId', authenticate_token_middleware.authenticateToken, midia.index);
 routes.post('/midias', upload.single('arquivo'), authenticate_token_middleware.authenticateToken, midia.create); 
+routes.delete('/midias/:midiaId', authenticate_token_middleware.authenticateToken, midia.delete);
+routes.put('/midias/:midiaId', upload.single('arquivo'), authenticate_token_middleware.authenticateToken, midia.update);
 
 // 3 consultas padrão - pedidas no enunciado do trabalho
 routes.get('/consulta1', standard.query1);

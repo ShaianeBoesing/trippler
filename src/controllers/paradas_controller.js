@@ -68,4 +68,3 @@ exports.delete = async function(req, res) {
     }
   }
 };
-

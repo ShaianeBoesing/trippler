@@ -1110,6 +1110,33 @@
 			"name": "Midia",
 			"item": [
 				{
+					"name": "Get Midias by Trip",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/midias",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"midias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Upload Midia",
 					"request": {
 						"auth": {
@@ -1154,6 +1181,89 @@
 							],
 							"path": [
 								"midias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Midia",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{base_url}}/midias/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"midias",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Midia",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "arquivo",
+									"description": "Adicione a foto de sua viagem",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "id_viagem",
+									"value": "1",
+									"description": "id_viagem",
+									"type": "text"
+								},
+								{
+									"key": "descricao",
+									"value": "Foto no Floripa Shopping",
+									"description": "Descreva sua imagem",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/midias/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"midias",
+								"1"
 							]
 						}
 					},
