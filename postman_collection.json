@@ -1,11 +1,11 @@
 {
 	"info": {
-		"_postman_id": "bbd018b2-c493-428b-8e49-d16360736bfd",
+		"_postman_id": "d1d57560-d29b-4198-a889-79817d687cd7",
 		"name": "Trippler",
 		"description": "Collection for testing Your API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "20431565",
-		"_collection_link": "https://lunar-escape-54083.postman.co/workspace/My-Workspace~7bd03bd6-0545-452b-83b7-8bf0184e70fb/collection/20431565-bbd018b2-c493-428b-8e49-d16360736bfd?action=share&creator=20431565&source=collection_link"
+		"_collection_link": "https://lunar-escape-54083.postman.co/workspace/My-Workspace~7bd03bd6-0545-452b-83b7-8bf0184e70fb/collection/20431565-d1d57560-d29b-4198-a889-79817d687cd7?action=share&creator=20431565&source=collection_link"
 	},
 	"item": [
 		{
@@ -15,12 +15,7 @@
 					"name": "Login",
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"username\": \"shaiboesing\"\n}",
@@ -127,13 +122,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/users/13",
+							"raw": "{{base_url}}/users/12",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"users",
-								"13"
+								"12"
 							]
 						}
 					},
@@ -164,13 +159,13 @@
 							"raw": "{\n  \"nome\": \"John Doe\",\n  \"username\": \"johndoe\",\n  \"email\": \"john.doe@example.com\",\n  \"endereco\": \"123 Main St\",\n  \"telefone\": \"123-456-7890\",\n  \"data_nasc\": \"1990-01-01\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/users/13",
+							"raw": "{{base_url}}/users/12",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"users",
-								"13"
+								"12"
 							]
 						}
 					},
@@ -1028,13 +1023,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/categories/17",
+							"raw": "{{base_url}}/categories/1",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"categories",
-								"17"
+								"1"
 							]
 						}
 					},
@@ -1323,7 +1318,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"viagem_id\": 1,\n  \"nome\": \"Item 1\",\n  \"quantidade\": 2\n}"
+							"raw": "{\n  \"nome\": \"Item 1\"\n}"
 						},
 						"url": {
 							"raw": "{{base_url}}/itens",
@@ -1353,13 +1348,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/itens/{{item_id}}",
+							"raw": "{{base_url}}/itens/2",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"itens",
-								"{{item_id}}"
+								"2"
 							]
 						}
 					},
@@ -1381,13 +1376,50 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/itens/{{item_id}}",
+							"raw": "{{base_url}}/itens/1",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"itens",
-								"{{item_id}}"
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Protetor Solar\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/itens/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"itens",
+								"2"
 							]
 						}
 					},
@@ -1421,13 +1453,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{base_url}}/tripItens/1",
+							"raw": "{{base_url}}/tripItens/10",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"tripItens",
-								"1"
+								"10"
 							]
 						}
 					},
@@ -1450,7 +1482,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"id_viagem\": \"1\",\r\n  \"id_item\": \"1\",\r\n  \"quantidade\": \"2\"\r\n}",
+							"raw": "{\r\n  \"id_viagem\": \"10\",\r\n  \"id_item\": \"8\",\r\n  \"quantidade\": \"2\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1458,19 +1490,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/tripItens/:id",
+							"raw": "{{base_url}}/tripItens",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"tripItens",
-								":id"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": null
-								}
+								"tripItens"
 							]
 						}
 					},
@@ -1492,71 +1517,52 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/tripItens/1/1",
+							"raw": "{{base_url}}/tripItens/10/1",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"tripItens",
-								"1",
+								"10",
 								"1"
 							]
 						}
 					},
 					"response": []
-				}
-			]
-		},
-		{
-			"name": "Consultas padrão",
-			"item": [
-				{
-					"name": "Custo medio parada/categoria",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/consulta1",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"consulta1"
-							]
-						}
-					},
-					"response": []
 				},
 				{
-					"name": "Top 10 itens",
+					"name": "Update Trip item",
 					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/consulta2",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"consulta2"
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
 							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Nota media viagem",
-					"request": {
-						"method": "GET",
+						},
+						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"quantidade\": 100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "{{base_url}}/consulta3/{{user_id}}",
+							"raw": "{{base_url}}/tripItens/10/6",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"consulta3",
-								"{{user_id}}"
+								"tripItens",
+								"10",
+								"6"
 							]
 						}
 					},

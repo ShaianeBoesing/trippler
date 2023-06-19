@@ -52,11 +52,13 @@ routes.get('/itens', authenticate_token_middleware.authenticateToken, itens.inde
 routes.post('/itens', authenticate_token_middleware.authenticateToken, itens.create); 
 routes.get('/itens/:id', authenticate_token_middleware.authenticateToken, itens.show); 
 routes.delete('/itens/:id', authenticate_token_middleware.authenticateToken, itens.delete);
+routes.put('/itens/:id', authenticate_token_middleware.authenticateToken, itens.update);
 
 // Trip Item
 routes.get('/tripItens/:id', authenticate_token_middleware.authenticateToken, tripItens.index); 
 routes.post('/tripItens', authenticate_token_middleware.authenticateToken, tripItens.create); 
 routes.delete('/tripItens/:tripId/:itemId', authenticate_token_middleware.authenticateToken, tripItens.delete);
+routes.put('/tripItens/:tripId/:itemId', authenticate_token_middleware.authenticateToken, tripItens.update);
 
 // Reviews
 routes.get('/trip/:tripId/reviews', authenticate_token_middleware.authenticateToken, reviews.index);
