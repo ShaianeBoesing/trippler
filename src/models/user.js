@@ -16,11 +16,13 @@ class User {
 
     const db = new Database();
     const existingUser = User.getUserByUsername(newUser.username);
+
     if (existingUser.length > 0) {
       throw new Error('Nome de usuário já existe');
     }
+
     const userId = await db.insert('Usuario', values);
-  
+
     newUser.id_usuario = userId;
     return new User(newUser);
   }
@@ -53,18 +55,17 @@ class User {
   }
 
   static async updateUser(userId, updatedUser) {
-    const set_values = Object.keys(updatedUser).map(column => `${column} = ?`).join(', ');
-    const params = [...Object.values(values), userId];
+    const id = { 'id_usuario': userId };
 
     const db = new Database();
-    await db.raw(`UPDATE Usuario SET ${set_values} WHERE id_usuario=?`, [params]);
+    db.update('Usuario', id, updatedUser)
 
     updatedUser.id_usuario = userId;
     return new User(updatedUser);
   }
 
   static async deleteUser(userId) {
-    const id = {'id_usuario': userId}
+    const id = { 'id_usuario': userId };
 
     const db = new Database();
     await db.delete('Usuario', id);
@@ -75,7 +76,7 @@ class User {
 
     const db = new Database();
     const userRows = await db.raw(query);
-    
+
     const users = userRows.map(userData => new User(userData));
     return users;
   }
