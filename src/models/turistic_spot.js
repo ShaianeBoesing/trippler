@@ -1,4 +1,13 @@
 const Database = require('../../database');
+const { CategoryNotFoundError } = require('./category');
+
+class TuristicSpotNotFoundError extends Error {
+  constructor(message = 'Ponto Turístico não encontrado.', errorCode = 404) {
+    super(message);
+    this.name = 'TuristicSpotNotFoundError';
+    this.errorCode = errorCode;
+  }
+}
 
 class TuristicSpot {
   constructor(turisticSpots) {
@@ -9,8 +18,14 @@ class TuristicSpot {
   }
 
   static async createTuristicSpot(newTuristicSpot) {
-
+    const id_categoria = newTuristicSpot["id_categoria"];
+ 
     const db = new Database();
+    const categoryExists = await db.raw('SELECT id_categoria FROM Categoria WHERE id_categoria = ?', [id_categoria]);
+    if (categoryExists.length == 0) {
+      throw new CategoryNotFoundError();
+    }
+
     const values = newTuristicSpot
     const turisticSpotsId = await db.insert('Ponto_Turistico', values);
     
@@ -32,11 +47,24 @@ class TuristicSpot {
   }
 
   static async updateTuristicSpot(turisticSpotId, updatedTuristicSpot) {
-    const values = updatedTuristicSpot;
+    const id_categoria = updatedTuristicSpot["id_categoria"];
 
     const db = new Database();
-    await db.update('Ponto_Turistico', turisticSpotId, values);
-    
+    if (id_categoria) {
+      const categoryExists = await db.raw('SELECT id_categoria FROM Categoria WHERE id_categoria = ?', [id_categoria]);
+      if (categoryExists.length == 0) {
+        throw new CategoryNotFoundError();
+      }
+    }
+
+    const values = updatedTuristicSpot;
+    const id = { 'id_ponto': turisticSpotId };
+    const result = await db.update('Ponto_Turistico', id, values);
+
+    if (result.affectedRows == 0) {
+      throw new TuristicSpotNotFoundError();
+    }
+
     updatedTuristicSpot.id_ponto = turisticSpotId;
     return new TuristicSpot(updatedTuristicSpot);
   }
@@ -44,7 +72,10 @@ class TuristicSpot {
   static async deleteTuristicSpot(turisticSpotId) {
     const id = { 'id_ponto': turisticSpotId}
     const db = new Database();
-    await db.delete('Ponto_Turistico', id);
+    const result = await db.delete('Ponto_Turistico', id);
+    if (result.affectedRows === 0) {
+      throw new TuristicSpotNotFoundError();
+    }
   }
 
   static async listTuristicSpots() {
@@ -60,4 +91,4 @@ class TuristicSpot {
   }
 }
 
-module.exports = TuristicSpot;
+module.exports = { TuristicSpot, TuristicSpotNotFoundError };

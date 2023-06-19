@@ -1,4 +1,5 @@
-const TuristicSpot = require('../models/turistic_spot');
+const { TuristicSpot, TuristicSpotNotFoundError } = require('../models/turistic_spot');
+const { CategoryNotFoundError } = require('../models/category');
 
 exports.index = async function(req, res) {
     try {
@@ -16,8 +17,12 @@ exports.create = async function(req, res) {
         res.status(201).json({ data: turisticSpot });
     } catch (error) {
       console.log(error);
-      res.status(500).json({ error: 'Erro ao criar ponto turístico' });
+      if (error instanceof CategoryNotFoundError) {
+        res.status(error.errorCode).json({ error: error.message });
+      } else {
+        res.status(500).json({ error: 'Erro ao criar ponto turístico' });
       }
+    }
 };
 
 exports.show = async function(req, res) {
@@ -43,8 +48,12 @@ exports.update = async function(req, res) {
         res.status(200).json({ data: turisticSpot });
     } catch (error) {
         console.log(error);
-        res.status(500).json({ error: 'Erro ao atualizar ponto turístico' });
-    }
+        if (error instanceof CategoryNotFoundError || error instanceof TuristicSpotNotFoundError) {
+          res.status(error.errorCode).json({ error: error.message });
+        } else {
+          res.status(500).json({ error: 'Erro ao atualizar ponto turístico' });
+        }
+      }
 };
 
 exports.delete = async function(req, res) {
@@ -53,6 +62,11 @@ exports.delete = async function(req, res) {
         await TuristicSpot.deleteTuristicSpot(turisticSpotId);
         res.status(204).json();
     } catch (error) {
-        res.status(500).json({ error: 'Erro ao excluir ponto turístico' });
+        console.log(error);
+        if (error instanceof CategoryNotFoundError || error instanceof TuristicSpotNotFoundError) {
+            res.status(error.errorCode).json({ error: error.message });
+        } else {
+            res.status(500).json({ error: 'Erro ao excluir ponto turístico' });
+        }
     }
 };

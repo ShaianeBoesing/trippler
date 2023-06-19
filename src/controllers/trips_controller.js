@@ -1,6 +1,6 @@
 // controllers/trip_controller.js
 
-const Trip = require('../models/trip');
+const [Trip, TripNotFoundError] = require('../models/trip');
 
 exports.index = async function(req, res) {
   try {
@@ -32,10 +32,14 @@ exports.show = async function(req, res) {
     if (trip) {
       res.status(200).json({ data: trip });
     } else {
-      res.status(404).json({ error: 'Viagem não encontrada' });
+      throw new TripNotFoundError();
     }
   } catch (error) {
-    res.status(500).json({ error: 'Erro ao obter viagem' });
+    if (error instanceof TripNotFoundError) {
+      res.status(error.errorCode).json({ error: error.message });
+    } else {
+      res.status(500).json({ error: 'Erro ao atualizar viagem' });
+    }
   }
 };
 
@@ -48,7 +52,11 @@ exports.update = async function(req, res) {
     res.status(200).json({ data: trip });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ error: 'Erro ao atualizar viagem' });
+    if (error instanceof TripNotFoundError) {
+      res.status(error.errorCode).json({ error: error.message });
+    } else {
+      res.status(500).json({ error: 'Erro ao atualizar viagem' });
+    }
   }
 };
 
@@ -59,6 +67,11 @@ exports.delete = async function(req, res) {
     await Trip.deleteTrip(tripId, userId);
     res.status(204).json();
   } catch (error) {
-    res.status(500).json({ error: 'Erro ao excluir viagem' });
+    console.log(error);
+    if (error instanceof TripNotFoundError) {
+      res.status(error.errorCode).json({ error: error.message });
+    } else {
+      res.status(500).json({ error: 'Erro ao excluir viagem' });
+    }
   }
 };
