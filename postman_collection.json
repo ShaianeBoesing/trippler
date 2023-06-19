@@ -161,7 +161,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"John Doe\",\n  \"username\": \"johndoe\",\n  \"email\": \"john.doe@example.com\",\n  \"endereco\": \"123 Main St\",\n  \"telefone\": \"123-456-7890\",\n  \"data_nasc\": \"1990-01-01\"\n}"
+							"raw": "{\n  \"nome\": \"John Doe\",\n  \"username\": \"johndoe\",\n  \"email\": \"john.doe@example.com\",\n  \"endereco\": \"123 Main St\",\n  \"telefone\": \"123-456-7890\",\n  \"data_nasc\": \"1990-01-01\"\n}"
 						},
 						"url": {
 							"raw": "{{base_url}}/users/13",

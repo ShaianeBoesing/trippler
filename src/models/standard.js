@@ -8,8 +8,8 @@ async function avgCostPerCategory() {
                    JOIN Parada USING (id_ponto)
                    GROUP BY Categoria.id_categoria;`;
 
-    const [rows] = await db.raw(query);
-    return [rows];
+    const rows = await db.raw(query);
+    return rows;
 }
 
 async function topTenItens() {
@@ -22,8 +22,8 @@ async function topTenItens() {
                    ORDER BY quantidade_levada DESC
                    LIMIT 10;`;
 
-    const [rows] = await db.raw(query);
-    return [rows];
+    const rows = await db.raw(query);
+    return rows;
 }
 
 async function avgGradePerTrip(userId) {
@@ -35,8 +35,8 @@ async function avgGradePerTrip(userId) {
                    WHERE Usuario.id_usuario = ${userId}
                    GROUP BY Viagem.id_viagem;`;
 
-    const [rows] = await db.raw(query);
-    return [rows];
+    const rows = await db.raw(query);
+    return rows;
 }
 
 module.exports = { avgCostPerCategory, topTenItens, avgGradePerTrip };

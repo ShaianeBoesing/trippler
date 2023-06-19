@@ -6,7 +6,7 @@ exports.query1 = async function(req, res) {
         res.status(200).json({ data });
     } catch (error) {
         console.log(error)
-        res.status(500).json({ error: 'Erro ao obter a lista de usuários' });
+        res.status(500).json({ error: 'Erro ao obter o custo médio de paradas por categoria' });
     }
 };
 
@@ -16,7 +16,7 @@ exports.query2 = async function(req, res) {
         res.status(200).json({ data });
     } catch (error) {
         console.log(error)
-        res.status(500).json({ error: 'Erro ao obter a lista de usuários' });
+        res.status(500).json({ error: 'Erro ao obter a lista de itens mais levados em viagens' });
     }
 };
 
@@ -27,6 +27,6 @@ exports.query3 = async function(req, res) {
         res.status(200).json({ data });
     } catch (error) {
         console.log(error)
-        res.status(500).json({ error: 'Erro ao obter a lista de usuários' });
+        res.status(500).json({ error: 'Erro ao obter a nota média das viagens do usuário selecionado' });
     }
 };
