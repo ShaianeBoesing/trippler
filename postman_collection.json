@@ -202,6 +202,63 @@
 			]
 		},
 		{
+			"name": "Consultas padrão",
+			"item": [
+				{
+					"name": "Custo medio parada/categoria",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/consulta1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"consulta1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Top 10 itens",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/consulta2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"consulta2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Nota media viagem",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/consulta3/{{user_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"consulta3",
+								"{{user_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Friendship",
 			"item": [
 				{
